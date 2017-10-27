@@ -10,7 +10,7 @@ To get an overview of what is missing on the map, you should have a look at the 
 
 ## Contributing
 
-* Open the code in [Tangram Play](https://mapzen.com/tangram/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/style.yaml)
+* Open the code in [Tangram Play](https://mapzen.com/tangram/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/style.yaml)
 * Change or add something to the style
 * Download the file after you did your work
 * Make a pull request to this repository
