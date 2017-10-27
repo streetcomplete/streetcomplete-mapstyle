@@ -1,6 +1,6 @@
 # StreetComplete Mapstyle
 
-The goal of this project is to create a new style for the map which is used by the android application [StreetComplete](https://github.com/westnordost/StreetComplete)
+The goal of this project is to create a new style for the map which will be used by the android application [StreetComplete](https://github.com/westnordost/StreetComplete)
 
 ## Getting started
 
