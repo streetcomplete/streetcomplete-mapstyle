@@ -15,18 +15,18 @@ If you start to edit the style keep in mind that:
 
 ### What should not be added?
 * No POIs
-* No elements which have no relation to the <a href="http://wiki.openstreetmap.org/wiki/StreetComplete/Quests" target="_blank">quests</a> of StreetComplete
+* No elements which have no relation to the [quests](http://wiki.openstreetmap.org/wiki/StreetComplete/Quests) of StreetComplete
 * Only things need to be shown that matter on the survey (on foot)
 
 ## Contributing
 
-* Open the code in <a href="https://mapzen.com/tangram/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/style.yaml" target="_blank">Tangram Play</a>
+* Open the code in [Tangram Play](https://mapzen.com/tangram/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/style.yaml)
 * Change or add something to the style
 * Download the file after you did your work
 * Make a pull request to this repository
 
 ## Useful links
 
-* <a href="https://mapzen.com/documentation/tangram/" target="_blank">Tangram documentation</a>
-* <a href="https://mapzen.com/tangram/play" target="_blank">Tangram Play</a>
-* <a href="https://github.com/westnordost/StreetComplete/issues/183" target="_blank">Issue #183 of StreetComplete</a> (The reason why this repository was created)
+* [Tangram documentation](https://mapzen.com/documentation/tangram/)
+* [Tangram Play](https://mapzen.com/tangram/play)
+* [Issue #183 of StreetComplete](https://github.com/westnordost/StreetComplete/issues/183) (The reason why this repository was created)
