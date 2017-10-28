@@ -29,21 +29,6 @@ sources:
         tile_size: 512
 
 fonts:
-    Open Sans:
-        - weight: 300 # Light
-          url: fonts/OpenSans-Light.woff
-        - weight: normal # Regular
-          url: fonts/OpenSans-Regular.woff
-        - weight: normal # Regular
-          style: italic
-          url: fonts/OpenSans-Italic.woff
-        - weight: 600 # Semi Bold
-          url: fonts/OpenSans-Semibold.woff
-        - weight: 600 # Semi Bold
-          style: italic
-          url: fonts/OpenSans-SemiboldItalic.woff
-        - weight: bold
-          url: fonts/OpenSans-Bold.woff
     Montserrat:
         - weight: normal
           url: https://fonts.gstatic.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff
