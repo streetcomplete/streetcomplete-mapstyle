@@ -13,6 +13,7 @@ global:
     highway_color: '#4da39a'
     text_font_family: 'Montserrat'
     text_stroke_color: 'white'
+    text_stroke: { color: global.text_stroke_color, width: 2px }
     text_fill_color: 'black'
 
     sdk_mapzen_api_key: mapzen-K4gGzRg
@@ -173,7 +174,7 @@ layers:
                         fill: global.text_fill_color
                         family: global.text_font_family
                         size: 12px
-                        stroke: { color: global.text_stroke_color, width: 2px }
+                        stroke: global.text_stroke
 
     places:
         data: { source: mapzen, layer: places }
