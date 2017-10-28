@@ -29,5 +29,5 @@ If you start to edit the style keep in mind that:
 
 * [Tangram documentation](https://mapzen.com/documentation/tangram/)
 * [Tangram Play](https://mapzen.com/tangram/play)
-* [View the map](https://mapzen.com/tangram/view/?api=64617/1161)
+* [View the map](https://mapzen.com/tangram/view/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/style.yaml)
 * [Issue #183 of StreetComplete](https://github.com/westnordost/StreetComplete/issues/183) (The reason why this repository was created)
