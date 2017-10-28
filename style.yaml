@@ -17,7 +17,7 @@ global:
 
     sdk_mapzen_api_key: mapzen-K4gGzRg
 
-    language_text_source: |
+    name_source: |
         function() {
             // Use preferred language label if available
             return (global.language && feature['name:'+global.language]) || feature.name;
@@ -181,7 +181,7 @@ layers:
             name: true
         draw:
             text:
-                text_source: global.language_text_source
+                text_source: global.name_source
                 visible: true
                 buffer: 3px
                 font:
