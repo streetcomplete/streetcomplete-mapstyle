@@ -161,7 +161,6 @@ layers:
         address-labels:
             filter:
                 all:
-                    - function() { return true; }
                     - $zoom: { min: 19 }
                 any:
                     - kind: address
