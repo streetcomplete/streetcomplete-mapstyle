@@ -12,6 +12,8 @@ global:
     minor_road_color: '#4da39a'
     highway_color: '#4da39a'
     text_font_family: 'Montserrat'
+    text_stroke_color: 'white'
+    text_fill_color: 'black'
 
     sdk_mapzen_api_key: mapzen-K4gGzRg
 
@@ -168,10 +170,10 @@ layers:
                     order: function() { return feature.sort_rank; }
                     text_source: addr_housenumber
                     font:
-                        fill: black
+                        fill: global.text_fill_color
                         family: global.text_font_family
                         size: 12px
-                        stroke: { color: white, width: 2px }
+                        stroke: { color: global.text_stroke_color, width: 2px }
 
     places:
         data: { source: mapzen, layer: places }
@@ -183,5 +185,5 @@ layers:
                 visible: true
                 buffer: 3px
                 font:
+                    fill: global.text_fill_color
                     family: global.text_font_family
-                    fill: black
