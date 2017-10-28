@@ -11,6 +11,7 @@ global:
     major_road_color: '#4da39a'
     minor_road_color: '#4da39a'
     highway_color: '#4da39a'
+    text_font_family: 'Montserrat'
 
     sdk_mapzen_api_key: mapzen-K4gGzRg
 
@@ -168,7 +169,7 @@ layers:
                     text_source: addr_housenumber
                     font:
                         fill: black
-                        family: 'Montserrat'
+                        family: global.text_font_family
                         size: 12px
                         stroke: { color: white, width: 2px }
 
@@ -182,5 +183,5 @@ layers:
                 visible: true
                 buffer: 3px
                 font:
-                    family: 'Montserrat'
+                    family: global.text_font_family
                     fill: black
