@@ -11,12 +11,12 @@ To get an overview of what is missing on the map, you should have a look at the 
 If you start to edit the style keep in mind that:
 * the map should not distract from the app's sole purpose
 * StreetComplete is not a map application (map has not to be very detailed)
-* That's it! Go ahead and create something awesome!
 
 ### What should not be added?
 * No POIs
 * No elements which have no relation to the [quests](http://wiki.openstreetmap.org/wiki/StreetComplete/Quests) of StreetComplete
 * Only things need to be shown that matter on the survey (on foot)
+* That's it! Go ahead and create something awesome!
 
 ## Contributing
 
@@ -29,4 +29,5 @@ If you start to edit the style keep in mind that:
 
 * [Tangram documentation](https://mapzen.com/documentation/tangram/)
 * [Tangram Play](https://mapzen.com/tangram/play)
+* [View the map](https://mapzen.com/tangram/view/?api=64617/1161)
 * [Issue #183 of StreetComplete](https://github.com/westnordost/StreetComplete/issues/183) (The reason why this repository was created)
