@@ -46,17 +46,9 @@ fonts:
 
 scene:
     background:
-        color: lightgrey
+        color: global.earth_color
 
 layers:
-    #Everything which is not water
-    earth:
-        data: { source: mapzen }
-        draw:
-            polygons:
-                order: function() { return feature.sort_rank; }
-                color: global.earth_color
-
     #Everything which is water
     water:
         data: { source: mapzen }
