@@ -56,12 +56,21 @@ layers:
 
     #Everything which is water
     water:
-        data: { source: mapzen }
-        draw:
-            polygons:
-                order: function() { return feature.sort_rank; }
-                color: global.water_color
+        data: { source: mapzen, layer: water }
+        lines:
+            filter: { kind: [river, canal, stream, ditch, drain], $zoom: { min: 13 } }
+            draw:
+                lines:
+                    order: function() { return feature.sort_rank; }
+                    color: global.water_color
+                    width: [[13, 1px], [14, 1.5px], [15, 2px], [16, 3px], [18, 4m]]
+                    cap: round
 
+        water_areas:
+            draw:
+                polygons:
+                    order: function() { return feature.sort_rank; }
+                    color: global.water_color
 
     landuse:
         data: { source: mapzen }
