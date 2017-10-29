@@ -191,7 +191,9 @@ layers:
     places:
         data: { source: mapzen, layer: places }
         filter:
-            name: true
+            all:
+                - name: true
+                - not: {source: [whosonfirst.mapzen.com]}
         draw:
             text:
                 text_source: global.name_source
