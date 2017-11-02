@@ -63,16 +63,16 @@ layers:
                       width: [[15, 0px], [17, 0px], [18, 1px]]
 
   places:
-    data: { source: mapzen, layer: places }
-    filter:
-      all:
-        - name: true
-        - not: {source: [whosonfirst.mapzen.com]}
-    draw:
-      text:
-        text_source: global.name_source
-        visible: true
-        buffer: 3px
-        font:
-          fill: global.text_fill_color
-          family: global.text_font_family
+      data: { source: mapzen, layer: places }
+      filter:
+          all:
+            - name: true
+            - not: {source: [whosonfirst.mapzen.com]}
+      draw:
+          text:
+              text_source: global.name_source
+              visible: true
+              buffer: 3px
+              font:
+                  fill: global.text_fill_color
+                  family: global.text_font_family
