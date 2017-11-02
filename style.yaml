@@ -12,6 +12,7 @@ global:
     road_outline: black
     path_color: global.road_color
     path_outline: global.road_outline
+    satellite_order: 500
 
     sdk_mapzen_api_key: mapzen-K4gGzRg
 
@@ -28,6 +29,12 @@ sources:
         url_params:
             api_key: global.sdk_mapzen_api_key
         tile_size: 512
+
+    mapbox-satellite:
+        type: Raster
+        url: https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png
+        url_params:
+            access_token: pk.eyJ1IjoiZW50OHIiLCJhIjoiY2o5aXBvZGI1MGMyZzJxbjJtNGxzZzllYiJ9.7vUh6rE_BUG1RdfEqQdtCg
 
 fonts:
     Montserrat:
@@ -46,6 +53,13 @@ scene:
         color: lightgrey
 
 layers:
+    #Satellite maps
+    terrain:
+        data: { source: mapbox-satellite }
+        draw:
+            raster:
+                order: global.satellite_order
+
     #Everything which is not water
     earth:
         data: { source: mapzen }
