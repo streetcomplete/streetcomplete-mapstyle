@@ -33,5 +33,5 @@ layers:
                     font:
                         fill: global.text_fill_color
                         family: global.text_font_family
-                        size: 12px
+                        size: global.text_size
                         stroke: global.text_stroke
