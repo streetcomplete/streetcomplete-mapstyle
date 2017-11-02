@@ -1,9 +1,9 @@
 import:
-  - https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/satellite-images/layers.yaml
   - https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/satellite-images/global.yaml
+  - https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/satellite-images/layers.yaml
 #import:
-  #- layers.yaml
   #- global.yaml
+  #- layers.yaml
 
 layers:
     #Everything which is not water
