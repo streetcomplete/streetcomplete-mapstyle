@@ -1,0 +1,134 @@
+#Shared code which is currently needed by all styles
+
+global:
+    earth_color: '#82fd88'
+    water_color: '#2594e4'
+    landuse_color: '#46eba7'
+    text_font_family: 'Montserrat'
+    text_stroke_color: 'white'
+    text_stroke: { color: global.text_stroke_color, width: 2px }
+    text_fill_color: 'black'
+    text_size: 12px
+    building_color: '#caffd2'
+    building_outline: black
+    road_color: '#4da39a'
+    road_outline: black
+    path_color: global.road_color
+    path_outline: global.road_outline
+
+    sdk_mapzen_api_key: mapzen-K4gGzRg
+
+    name_source: |
+        function() {
+            // Use preferred language label if available
+            return (global.language && feature['name:'+global.language]) || feature.name;
+        }
+
+scene:
+    background:
+        color: lightgrey
+
+sources:
+    mapzen:
+        type: MVT
+        url: https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.mvt
+        url_params:
+            api_key: global.sdk_mapzen_api_key
+        tile_size: 512
+
+    mapbox-satellite:
+        type: Raster
+        url: https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png
+        url_params:
+            access_token: pk.eyJ1IjoiZW50OHIiLCJhIjoiY2o5aXBvZGI1MGMyZzJxbjJtNGxzZzllYiJ9.7vUh6rE_BUG1RdfEqQdtCg
+
+fonts:
+    Montserrat:
+        - weight: normal
+          url: https://fonts.gstatic.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff
+          #url: fonts/Montserrat-Regular.woff
+        - weight: 500
+          url: https://fonts.gstatic.com/s/montserrat/v10/BYPM-GE291ZjIXBWrtCweqLy3K7m9xj_O5xwN3SdQNs.woff
+          #url: fonts/Montserrat-Medium.woff
+        - weight: 700
+          url: https://fonts.gstatic.com/s/montserrat/v10/IQHow_FEYlDC4Gzy_m8fcnbFhgvWbfSbdVg11QabG8w.woff
+          #url: fonts/Montserrat-Bold.woff
+
+layers:
+
+  #All roads
+  roads:
+      data: { source: mapzen}
+      filter:
+          not: { kind: [rail, ferry] }
+      draw:
+          lines:
+              order: function() { return feature.sort_rank; }
+              cap: round
+              color: global.road_color
+              width: [[5, 1px], [12, 2px], [16, 5px], [17, 7m]]
+
+      highway:
+          filter:
+              kind: highway
+          draw:
+              lines:
+                  width: [[5, 2px], [14, 5px], [15, 12]]
+                  order: function() { return feature.sort_rank; }
+
+      major_road:
+          filter:
+              kind: major_road
+          draw:
+              lines:
+                  order: function() { return feature.sort_rank; }
+                  width: [[10, 0px], [14, 2px], [16, 6px], [19, 8m]]
+
+      minor_road:
+          filter: { kind: minor_road, not: { kind_detail: service } }
+          draw:
+              lines:
+                  order: function() { return feature.sort_rank; }
+                  width: [[11, 0.5px], [12, 0.75px], [13, 1.0px], [14, 1.2px], [15, 2.5px], [16, 6m]]
+
+      service_road:
+          filter: { kind: minor_road, kind_detail: service }
+          draw:
+              lines:
+                  width: [[13, 0.5px], [17, 3px], [18, 3m]]
+
+       # default outlines starting at zoom 15
+      default-outline-width:
+          filter: { $zoom: { min: 15 } }
+          draw:
+              lines:
+                  outline:
+                      color: global.road_outline
+                      width: function () { return 3/16 * Math.log($zoom); }
+
+      path:
+          filter:
+              all:
+                  - kind: [path, portage_way]
+          draw:
+              lines:
+                  color: global.path_color
+                  width: [[14, 0.5px], [15, 1.5px], [17, 3m]]
+                  outline:
+                      color: global.path_outline
+                      width: [[15, 0px], [17, 0px], [18, 1px]]
+
+  places:
+      data: { source: mapzen, layer: places }
+      filter:
+          all:
+            - name: true
+            - not: {source: [whosonfirst.mapzen.com]}
+      draw:
+          text:
+              text_source: global.name_source
+              visible: true
+              buffer: 3px
+              font:
+                  fill: global.text_fill_color
+                  family: global.text_font_family

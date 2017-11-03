@@ -1,0 +1,37 @@
+import:
+  - https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/global.yaml
+#import:
+  #- global.yaml
+
+global:
+    road_color: '#ffffff'
+    satellite_order: 0
+
+layers:
+    #Satellite images
+    terrain:
+        data: { source: mapbox-satellite }
+        draw:
+            raster:
+                order: global.satellite_order
+
+    buildings:
+        data: { source: mapzen }
+        filter: {$zoom: { min: 16 }, not: { location: underground }}
+
+        address-labels:
+            filter:
+                all:
+                    - $zoom: { min: 19 }
+                any:
+                    - kind: address
+                    - { label_position: true, addr_housenumber: true, name: false }
+            draw:
+                text:
+                    order: function() { return feature.sort_rank; }
+                    text_source: addr_housenumber
+                    font:
+                        fill: global.text_fill_color
+                        family: global.text_font_family
+                        size: global.text_size
+                        stroke: global.text_stroke
