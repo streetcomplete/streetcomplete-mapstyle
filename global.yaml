@@ -68,6 +68,20 @@ layers:
               color: global.road_color
               width: [[5, 1px], [12, 2px], [16, 5px], [17, 7m]]
 
+      highway_names:
+          filter: { $zoom: { min: 14 } }
+          draw:
+              text:
+                  text_source: global.name_source
+                  buffer: 3px
+                  text_wrap: 25
+                  max_lines: 3
+                  font:
+                      family: global.text_font_family
+                      weight: normal
+                      fill: global.text_fill_color
+                      size: global.text_size
+                      stroke: global.text_stroke
       highway:
           filter:
               kind: highway
