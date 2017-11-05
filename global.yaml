@@ -120,6 +120,7 @@ layers:
                     outline:
                         color: global.road_outline
                         width: function () { return 3/16 * Math.log($zoom); }
+                        order: 200
 
         path:
             filter:
