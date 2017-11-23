@@ -20,7 +20,7 @@ If you start to edit the style keep in mind that:
 
 ## Contributing
 
-* Open the code in Tangram Play ([Normal map](https://mapzen.com/tangram/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/base-style.yaml),  [Satellite map](https://mapzen.com/tangram/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/satellite-style.yaml)),[Dark map](https://mapzen.com/tangram/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/dark-style.yaml))
+* Open the code in Tangram Play ([Normal map](https://mapzen.com/tangram/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/base-style.yaml),  [Satellite map](https://mapzen.com/tangram/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/satellite-style.yaml),[Dark map](https://mapzen.com/tangram/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/dark-style.yaml))
 * Change or add something to the style
 * Download the file after you did your work
 * Make a pull request to this repository
@@ -29,7 +29,7 @@ If you start to edit the style keep in mind that:
 
 * [Tangram documentation](https://mapzen.com/documentation/tangram/)
 * [Tangram Play](https://mapzen.com/tangram/play)
-* [View the map](https://mapzen.com/tangram/view/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/base-style.yaml)
+* [View normal map](https://mapzen.com/tangram/view/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/base-style.yaml)
 * [View satellite map](https://mapzen.com/tangram/view/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/satellite-style.yaml)
 * [View dark map](https://mapzen.com/tangram/view/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/dark-style.yaml)
 * [Issue #183 of StreetComplete](https://github.com/westnordost/StreetComplete/issues/183) (The reason why this repository was created)
