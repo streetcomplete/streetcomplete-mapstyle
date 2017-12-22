@@ -7,6 +7,7 @@ global:
     text_font_family: 'Montserrat'
     text_stroke_color: 'white'
     text_stroke: { color: global.text_stroke_color, width: 2px }
+    text_places_stroke: { color: global.text_stroke_color, width: 1.5px }
     text_fill_color: 'black'
     text_size: 12px
     building_color: '#caffd2'
@@ -150,3 +151,4 @@ layers:
                 font:
                     fill: global.text_fill_color
                     family: global.text_font_family
+                    stroke: global.text_places_stroke
