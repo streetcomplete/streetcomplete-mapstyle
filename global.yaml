@@ -60,7 +60,9 @@ layers:
     roads:
         data: { source: mapzen}
         filter:
-            not: { kind: [rail, ferry] }
+            not:
+                - kind: [rail, ferry]
+                - kind_detail: [sidewalk]
         draw:
             lines:
                 order: function() { return feature.sort_rank; }
@@ -129,7 +131,7 @@ layers:
             draw:
                 lines:
                     color: global.path_color
-                    width: [[14, 0.5px], [15, 1.5px], [17, 3m]]
+                    width: [[14, 0.5px], [15, 1px], [17, 1m], [19, 1.5m]]
                 outline:
                     color: global.path_outline
                     width: [[15, 0px], [17, 0px], [18, 1px]]
