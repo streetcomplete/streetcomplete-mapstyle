@@ -4,6 +4,7 @@ global:
     earth_color: '#82fd88'
     water_color: '#2594e4'
     landuse_color: '#46eba7'
+    railway_color: '#ccd'
     text_font_family: 'Montserrat'
     text_stroke_color: 'white'
     text_stroke: { color: global.text_stroke_color, width: 2px }
@@ -56,6 +57,15 @@ fonts:
           #url: fonts/Montserrat-Bold.woff
 
 layers:
+
+    railway:
+        filter: { kind: rail, not: { is_tunnel: true } }
+        data: { source: mapzen, layer: roads }
+        draw:
+            lines:
+                order: 1200
+                color: global.railway_color
+                width: [[10, 0.5px], [12, 1.0px], [13, 4px]]
 
     #All roads
     roads:
