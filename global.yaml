@@ -30,6 +30,9 @@ scene:
     background:
         color: '#cfd'
 
+camera:
+    fov: 80
+        
 sources:
     mapzen:
         type: MVT
