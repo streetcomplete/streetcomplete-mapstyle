@@ -68,7 +68,7 @@ layers:
             lines:
                 order: 1200
                 color: global.railway_color
-                width: [[10, 0.5px], [12, 1.0px], [13, 4px]]
+                width: [[10, 0.5px], [12, 1.0px], [13, 4px], [18,4m]]
 
     #All roads
     roads:
@@ -104,7 +104,7 @@ layers:
                 kind: highway
             draw:
                 lines:
-                    width: [[5, 2px], [14, 5px], [15, 12]]
+                    width: [[5, 2px], [14, 5px], [15, 20m]]
                     order: function() { return feature.sort_rank; }
 
         major_road:
@@ -113,20 +113,20 @@ layers:
             draw:
                 lines:
                     order: function() { return feature.sort_rank; }
-                    width: [[10, 0px], [14, 2px], [16, 6px], [19, 8m]]
+                    width: [[10, 0px], [14, 2px], [16, 6px], [19, 12m]]
 
         minor_road:
             filter: { kind: minor_road, not: { kind_detail: service } }
             draw:
                 lines:
                     order: function() { return feature.sort_rank; }
-                    width: [[11, 0.5px], [12, 0.75px], [13, 1.0px], [14, 1.2px], [15, 2.5px], [16, 6m]]
+                    width: [[11, 0.5px], [12, 0.75px], [13, 1.0px], [14, 1.2px], [15, 2.5px], [16, 8m]]
 
         service_road:
             filter: { kind: minor_road, kind_detail: service }
             draw:
                 lines:
-                    width: [[13, 0.5px], [17, 3px], [18, 3m]]
+                    width: [[13, 0.5px], [17, 3px], [18, 4m]]
 
         # default outlines starting at zoom 15
         default-outline-width:
@@ -135,7 +135,7 @@ layers:
                 lines:
                     outline:
                         color: global.road_outline
-                        width: function () { return 3/16 * Math.log($zoom); }
+                        width: function () { return 1/4 * Math.log($zoom); }
                         order: 200
 
         path:
@@ -145,10 +145,10 @@ layers:
             draw:
                 lines:
                     color: global.path_color
-                    width: [[14, 0.5px], [15, 1px], [17, 1m], [19, 1.5m]]
+                    width: [[14, 0.5px], [15, 1px], [17, 1m], [19, 2m]]
                 outline:
                     color: global.path_outline
-                    width: [[15, 0px], [17, 0px], [18, 1px]]
+                    width: [[15, 0px], [17, 0px], [18, 2px]]
 
     places:
         data: { source: mapzen, layer: places }
