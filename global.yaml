@@ -28,7 +28,7 @@ global:
 
 scene:
     background:
-        color: '#f3eacc'
+        color: global.earth_color
 
 camera:
     fov: 80
