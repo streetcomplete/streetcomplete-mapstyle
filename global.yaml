@@ -32,7 +32,18 @@ scene:
 
 camera:
     fov: 80
-        
+
+lights:
+    cameralight:
+        type: point
+        diffuse: 0.3
+        origin: camera
+        ambient: 0.6
+    groundlight:
+        type: point
+        diffuse: 0.15
+        origin: ground
+
 sources:
     mapzen:
         type: MVT
