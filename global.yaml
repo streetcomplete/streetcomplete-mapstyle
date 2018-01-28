@@ -2,7 +2,7 @@
 
 global:
     railway_color: '#99a'
-    earth_color: '#eee6cc'
+    earth_color: '#f3eacc'
     water_color: '#68d'
     landuse_color: '#c6ddaa' #'#ddc6aa'
     text_font_family: 'Montserrat'
@@ -28,7 +28,7 @@ global:
 
 scene:
     background:
-        color: '#eee6cc'
+        color: '#f3eacc'
 
 camera:
     fov: 80
