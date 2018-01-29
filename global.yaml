@@ -1,19 +1,20 @@
 #Shared code which is currently needed by all styles
 
 global:
-    earth_color: '#82fd88'
-    water_color: '#2594e4'
-    landuse_color: '#46eba7'
+    railway_color: '#99a'
+    earth_color: '#f3eacc'
+    water_color: '#68d'
+    landuse_color: '#c6ddaa' #'#ddc6aa'
     text_font_family: 'Montserrat'
     text_stroke_color: 'white'
-    text_stroke: { color: global.text_stroke_color, width: 2px }
-    text_places_stroke: { color: global.text_stroke_color, width: 1.5px }
-    text_fill_color: 'black'
+    text_stroke: { color: global.text_stroke_color, width: 2.5px }
+    text_places_stroke: { color: global.text_stroke_color, width: 2.5px }
+    text_fill_color: '#124'
     text_size: 12px
-    building_color: '#caffd2'
-    building_outline: black
-    road_color: '#4da39a'
-    road_outline: black
+    building_color: '#ccd6ee'
+    building_outline: '#99c'
+    road_color: '#fff'
+    road_outline: '#cc9999'
     path_color: global.road_color
     path_outline: global.road_outline
 
@@ -27,7 +28,21 @@ global:
 
 scene:
     background:
-        color: lightgrey
+        color: global.earth_color
+
+camera:
+    fov: 80
+
+lights:
+    cameralight:
+        type: point
+        diffuse: 0.3
+        origin: camera
+        ambient: 0.6
+    groundlight:
+        type: point
+        diffuse: 0.15
+        origin: ground
 
 sources:
     mapzen:
@@ -56,6 +71,15 @@ fonts:
           #url: fonts/Montserrat-Bold.woff
 
 layers:
+
+    railway:
+        filter: { kind: rail, not: { is_tunnel: true } }
+        data: { source: mapzen, layer: roads }
+        draw:
+            lines:
+                order: 1200
+                color: global.railway_color
+                width: [[10, 0.5px], [12, 1.0px], [13, 4px], [18,4m]]
 
     #All roads
     roads:
@@ -91,7 +115,7 @@ layers:
                 kind: highway
             draw:
                 lines:
-                    width: [[5, 2px], [14, 5px], [15, 12]]
+                    width: [[5, 2px], [14, 5px], [15, 20m]]
                     order: function() { return feature.sort_rank; }
 
         major_road:
@@ -100,20 +124,20 @@ layers:
             draw:
                 lines:
                     order: function() { return feature.sort_rank; }
-                    width: [[10, 0px], [14, 2px], [16, 6px], [19, 8m]]
+                    width: [[10, 0px], [14, 2px], [16, 6px], [19, 12m]]
 
         minor_road:
             filter: { kind: minor_road, not: { kind_detail: service } }
             draw:
                 lines:
                     order: function() { return feature.sort_rank; }
-                    width: [[11, 0.5px], [12, 0.75px], [13, 1.0px], [14, 1.2px], [15, 2.5px], [16, 6m]]
+                    width: [[11, 0.5px], [12, 0.75px], [13, 1.0px], [14, 1.2px], [15, 2.5px], [16, 8m]]
 
         service_road:
             filter: { kind: minor_road, kind_detail: service }
             draw:
                 lines:
-                    width: [[13, 0.5px], [17, 3px], [18, 3m]]
+                    width: [[13, 0.5px], [17, 3px], [18, 4m]]
 
         # default outlines starting at zoom 15
         default-outline-width:
@@ -122,7 +146,7 @@ layers:
                 lines:
                     outline:
                         color: global.road_outline
-                        width: function () { return 3/16 * Math.log($zoom); }
+                        width: function () { return 1/4 * Math.log($zoom); }
                         order: 200
 
         path:
@@ -132,10 +156,10 @@ layers:
             draw:
                 lines:
                     color: global.path_color
-                    width: [[14, 0.5px], [15, 1px], [17, 1m], [19, 1.5m]]
+                    width: [[14, 0.5px], [15, 1px], [17, 1m], [19, 2m]]
                 outline:
                     color: global.path_outline
-                    width: [[15, 0px], [17, 0px], [18, 1px]]
+                    width: [[15, 0px], [17, 0px], [18, 2px]]
 
     places:
         data: { source: mapzen, layer: places }

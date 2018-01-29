@@ -4,8 +4,14 @@ import:
     #- base-style.yaml
 
 global:
-    earth_color: [0.267,0.365,0.502]
-    water_color: [0.200,0.200,0.360]
-    landuse_color: [0.402,0.568,0.818]
-    building_color: [0.212,0.302,0.431]
-    road_color: [0.333,0.518,0.612]
+    railway_color: '#282844'
+    earth_color: '#262a66'
+    water_color: '#000'
+    landuse_color: '#304066'
+    text_stroke_color: '#000'
+    text_fill_color: '#ccf'
+    text_size: 12px
+    building_color: '#3a3360'
+    building_outline: '#844'
+    road_color: '#448'
+    road_outline: '#99f'

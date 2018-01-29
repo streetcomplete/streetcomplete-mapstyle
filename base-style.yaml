@@ -123,12 +123,14 @@ layers:
             lines:
                 order: function() { return feature.sort_rank; }
                 color: global.building_outline
-                width: [[14, 0px], [15, 1px], [18, 1px], [19, 0.4m]]
+                width: [[14, 0px], [15, 1px], [18, 1px], [19, 0.6m]]
+
 
         3d-buildings:
             draw:
                 polygons:
                     extrude: function () { return feature.height > 20 || $zoom >= 16; }
+
 
         address-labels:
             filter:
