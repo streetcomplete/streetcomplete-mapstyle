@@ -1,0 +1,21 @@
+import:
+    - global.yaml
+    - layers/land.yaml
+    - layers/labels.yaml
+    - layers/roads.yaml
+
+global:
+    railway_color: '#99a'
+    road_color: '#fff'
+    road_outline_color: '#cc9999'
+    path_color: global.road_color
+    path_outline_color: '#e0c9b3'
+    
+    earth_color: '#f3eacc'
+    water_color: '#68d'
+    landuse_color: '#c6ddaa'
+    
+    building_color: '#ccd6ee'
+    building_outline_color: '#b9c3d9'
+
+    boundary_color: '#e66'
