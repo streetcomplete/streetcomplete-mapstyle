@@ -1,17 +1,35 @@
 import:
-    - https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/base-style.yaml
-#import:
-    #- base-style.yaml
+    - global.yaml
+    - layers/land.yaml
+    - layers/labels.yaml
+    - layers/roads.yaml
 
 global:
-    railway_color: '#282844'
-    earth_color: '#262a66'
-    water_color: '#000'
-    landuse_color: '#304066'
-    text_stroke_color: '#000'
+    text_stroke_color: '#20204e'
     text_fill_color: '#ccf'
-    text_size: 12px
-    building_color: '#3a3360'
-    building_outline: '#844'
+
+    railway_color: '#903'
     road_color: '#448'
-    road_outline: '#99f'
+    road_outline_color: '#99f'
+    path_color: global.road_color
+    path_outline_color: '#96b'
+
+    earth_color: '#20204e'
+    water_color: '#002'
+    landuse_color: '#403066'
+
+    building_color: '#420'
+    building_outline_color: '#310'
+
+    boundary_color: '#e46'
+
+styles:
+    lines-railway-style:
+        base: lines
+        blend: add
+    buildings-style:
+        base: polygons
+        blend: add
+    buildings-outline-style:
+        base: lines
+        blend: add
