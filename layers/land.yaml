@@ -81,14 +81,14 @@ layers:
         city_walls:
             filter: { kind: [city_wall, dam] }
             draw:
-                lines:
+                buildings-outline-style:
                     order: global.sort_rank
                     color: global.building_outline_color
                     width: [[12, 4px], [18, 8m]]
         walls:
             filter: { kind: [wall, retaining_wall, fence] }
             draw:
-                lines:
+                buildings-outline-style:
                     order: global.sort_rank
                     color: global.building_outline_color
                     width: [[15, 1px], [18, 2m]]
