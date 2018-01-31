@@ -3,7 +3,7 @@ layers:
         filter: { kind: rail, not: { is_tunnel: true } }
         data: { source: mapzen , layer: roads}
         draw:
-            lines:
+            lines-railway-style:
                 order: global.sort_rank
                 color: global.railway_color
                 join: round
@@ -35,13 +35,13 @@ layers:
             filter: { kind: highway, not: { is_link: true } }
             draw:
                 lines:
-                    width: [[5, 2px], [14, 5px], [15, 30m]]
+                    width: [[8, 2px], [14, 5px], [15, 30m]]
 
         major_road:
             filter: { kind: major_road }
             draw:
                 lines:
-                    width: [[10, 0px], [14, 2px], [16, 6px], [19, 12m]]
+                    width: [[9, 1px], [14, 2px], [16, 6px], [19, 12m]]
 
         minor_road:
             filter: { kind: minor_road, not: { kind_detail: service } }
@@ -87,3 +87,7 @@ layers:
                         color: global.path_outline_color
                         width: function () { return 1/4 * Math.log($zoom); }
                         order: 200
+styles:
+    lines-railway-style:
+        base: lines
+        blend: opaque
