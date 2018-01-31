@@ -21,8 +21,6 @@ global:
 
     boundary_color: '#e66'
 
-    sdk_mapzen_api_key: mapzen-K4gGzRg
-
     name_source: |
         function() {
             // Use preferred language label if available
