@@ -76,6 +76,14 @@ layers:
                         color: global.road_outline_color
                         width: function () { return 1/4 * Math.log($zoom); }
                         order: 200
+            bridges:
+                filter:
+                    - is_bridge: true
+                draw:
+                    lines:
+                        outline:
+                            cap: butt
+                            order: 400
 
         path-outline:
             filter: { $zoom: { min: 17 }, kind: [path, portage_way] }
