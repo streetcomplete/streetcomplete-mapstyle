@@ -86,8 +86,7 @@ layers:
                         width: function () { return 1/4 * Math.log($zoom); }
                         order: 200
             bridges:
-                filter:
-                    - is_bridge: true
+                filter: { is_tunnel: true }
                 draw:
                     lines:
                         outline:
