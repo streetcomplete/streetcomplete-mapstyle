@@ -49,8 +49,7 @@ layers:
                     width: [[11, 0.5px], [12, 0.75px], [13, 1.0px], [14, 1.2px], [15, 2.5px], [16, 8m]]
 
         tunnel:
-            filter:
-                - is_tunnel: true
+            filter: { is_tunnel: true }
             draw:
                 lines:
                     color: global.tunnel_color
