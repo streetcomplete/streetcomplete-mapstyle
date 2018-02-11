@@ -71,10 +71,8 @@ layers:
         steps:
             filter: { kind_detail: steps }
             draw:
-                lines:
+                step_dashes:
                     cap: butt
-                    dash: [0.6,0.4]
-                    dash_background_color: global.path_outline_color
 
         road-outline:
             filter: { $zoom: { min: 15 }, not: { kind: [path, portage_way] } }
@@ -101,6 +99,10 @@ layers:
                         width: function () { return 1/4 * Math.log($zoom); }
                         order: 200
 styles:
+    step_dashes:
+        base: lines
+        dash: [0.6,0.4]
+        dash_background_color: global.path_outline_color
     lines-railway-style:
         base: lines
         blend: opaque
