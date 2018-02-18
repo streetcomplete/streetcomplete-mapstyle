@@ -9,6 +9,12 @@ layers:
                 join: round
                 width: [[10, 0.5px], [12, 1.0px], [13, 2px], [18, 3m]]
 
+        tram:
+            filter: { kind_detail: tram }
+            draw:
+                lines-railway-style:
+                    order: function() { return feature.sort_rank+100; }
+
     roads:
         data: { source: mapzen}
         filter:
