@@ -13,7 +13,6 @@ global:
     path_color: global.road_color
     path_outline_color: '#e0c9b3'
     tunnel_color: '#ccdee0'
-
     square_color: global.road_color
 
     earth_color: '#f3eacc'
