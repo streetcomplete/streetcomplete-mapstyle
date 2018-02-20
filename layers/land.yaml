@@ -92,6 +92,19 @@ layers:
                     color: global.building_outline_color
                     width: [[15, 1px], [18, 2m]]
 
+        pedestrian:
+            filter:
+                all:
+                    - kind: [pedestrian]
+                    #- function() { return feature.area < 2000 }
+            draw:
+                lines:
+                    order: global.sort_rank
+                    color: global.road_outline_color
+                    width: [[15, 1px], [18, 1.5m]]
+                polygons:
+                    color: global.square_color
+
 styles:
     boundary_dashes:
         base: lines
