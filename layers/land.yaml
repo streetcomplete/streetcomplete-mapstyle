@@ -92,16 +92,13 @@ layers:
                     color: global.building_outline_color
                     width: [[15, 1px], [18, 2m]]
 
-        pedestrian:
-            filter:
-                all:
-                    - kind: [pedestrian]
-                    #- function() { return feature.area < 2000 }
+        squares:
+            filter: { kind: [pedestrian], $zoom: { min: 17 } }
             draw:
                 lines:
-                    order: global.sort_rank
                     color: global.road_outline_color
-                    width: [[15, 1px], [18, 1.5m]]
+                    width: function () { return 1/4 * Math.log($zoom); }
+                    order: 200
                 polygons:
                     color: global.square_color
 
