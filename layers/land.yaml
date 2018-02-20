@@ -96,11 +96,12 @@ layers:
             filter: { kind: [pedestrian], $zoom: { min: 17 } }
             draw:
                 lines:
-                    color: global.road_outline_color
+                    color: global.path_outline_color
                     width: function () { return 1/4 * Math.log($zoom); }
                     order: 200
                 polygons:
                     color: global.square_color
+                    order: 360
 
 styles:
     boundary_dashes:
