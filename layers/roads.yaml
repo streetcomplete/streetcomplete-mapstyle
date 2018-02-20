@@ -21,6 +21,7 @@ layers:
             not:
                 - kind: [rail, ferry, aerialway, piste]
                 - kind_detail: [sidewalk]
+                - is_tunnel: true
         draw:
             lines:
                 order: global.sort_rank
