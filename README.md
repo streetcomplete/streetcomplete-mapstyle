@@ -31,4 +31,6 @@ If you start to edit the style keep in mind that:
 
 * [Tangram documentation](https://mapzen.com/documentation/tangram/)
 * [Tangram Play](https://tangram.city/play/)
+* [View normal map](https://map-data.de/#style=streetcomplete-light)
+* [View dark map](https://map-data.de/#style=streetcomplete-dark)
 * [Issue #183 of StreetComplete](https://github.com/westnordost/StreetComplete/issues/183) (The reason why this repository was created)
