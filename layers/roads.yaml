@@ -8,7 +8,11 @@ layers:
                 color: global.railway_color
                 join: round
                 width: [[10, 0.5px], [12, 1.0px], [13, 2px], [18, 3m]]
-
+        service:
+            filter: { service: true }
+            draw:
+                lines-railway-style:
+                    width: [[10, 0.2px], [12, 0.5px], [13, 1px], [18, 1.5m]]
         tram:
             filter: { kind_detail: tram }
             draw:
