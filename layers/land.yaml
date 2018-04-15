@@ -27,7 +27,7 @@ layers:
                 cap: square
 
         shore_lines:
-            filter: { boundary: true, $zoom: { min: 16 }, not: {kind: [swimming_pool]} }
+            filter: { boundary: true, $zoom: { min: 16 }, area: { min: 700 } }
             draw:
                 lines-coast:
                     order: 220
