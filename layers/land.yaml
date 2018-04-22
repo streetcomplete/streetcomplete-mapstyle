@@ -27,7 +27,7 @@ layers:
                 cap: square
 
         shore_lines:
-            filter: { boundary: true, $zoom: { min: 16 }, area: { min: 700 } }
+            filter: { boundary: false, $zoom: { min: 16 }, area: { min: 700 } }
             draw:
                 lines-coast:
                     order: 220
