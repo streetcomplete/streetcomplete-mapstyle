@@ -1,0 +1,53 @@
+layers:
+    road_label:
+        data: { source: mapbox}
+        roads-labels:
+            filter: { $zoom: { min: 14 } }
+            draw:
+                text:
+                    text_source: global.name_source
+                    buffer: 8px
+                    text_wrap: 25
+                    max_lines: 3
+                    font:
+                        family: global.text_font_family
+                        weight: normal
+                        fill: global.text_fill_color
+                        size: global.text_size
+                        stroke: global.text_stroke
+
+    country_label:
+        data: { source: mapbox}
+        filter: { name: true }
+        draw:
+            text:
+                text_source: global.name_source
+                buffer: 12px
+                font:
+                    fill: global.text_fill_color
+                    family: global.text_font_family
+                    stroke: global.text_places_stroke
+
+    place_label:
+        data: { source: mapbox }
+        filter: { name: true }
+        draw:
+            text:
+                text_source: global.name_source
+                buffer: 12px
+                font:
+                    fill: global.text_fill_color
+                    family: global.text_font_family
+                    stroke: global.text_places_stroke
+
+    housenum_label:
+        data: { source: mapbox}
+        filter: { $zoom: { min: 19 } }
+        draw:
+            text:
+                text_source: house_num
+                font:
+                    fill: global.text_fill_color
+                    family: global.text_font_family
+                    size: global.text_size
+                    stroke: global.text_stroke
