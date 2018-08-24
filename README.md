@@ -2,7 +2,7 @@
 
 The goal of this project is to create a new style for the map which will be used by the android application [StreetComplete](https://github.com/westnordost/StreetComplete)
 
-<img src="images/light.png" height="200px"> <img src="images/dark.png" height="200px"> <img src="images/satellite.png" height="200px">
+<img src="https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/gh-pages/images/light.png" height="200px"> <img src="https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/gh-pages/images/dark.png" height="200px"> <img src="https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/gh-pages/images/satellite.png" height="200px">
 
 ## Getting started
 
