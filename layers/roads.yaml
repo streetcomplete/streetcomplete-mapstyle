@@ -113,6 +113,13 @@ layers:
                         width: function () { return 1/4 * Math.log($zoom); }
                         order: 200
 
+        private:
+            filter: { access: [no, private, destination, customers, delivery] }
+            draw:
+                lines:
+                    outline:
+                        style: private-way
+
         oneway:
             filter: { oneway: yes, $zoom: { min: 17 } }
             draw:
@@ -145,6 +152,9 @@ styles:
     lines-railway-style:
         base: lines
         blend: opaque
+    private-way:
+        base: lines
+        dash: [1.0,0.5]
     oneway-arrow:
         base: points
         texture: oneway-arrow
