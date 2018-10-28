@@ -112,6 +112,20 @@ layers:
                         color: global.path_outline_color
                         width: function () { return 1/4 * Math.log($zoom); }
                         order: 200
+
+        oneway:
+            filter: { oneway: yes, $zoom: { min: 17 } }
+            draw:
+                oneway-arrow:
+                    flat: true
+                    buffer: 2px
+                    color: global.oneway_arrow_color
+                    size: [[17, [6px, auto]], [20, [24px, auto]]]
+                    placement: spaced
+                    placement_spacing: [[17, 40px], [20, 120px]]
+                    angle: auto
+                    text:
+                        visible: false
 styles:
     step_dashes:
         base: lines
@@ -120,3 +134,6 @@ styles:
     lines-railway-style:
         base: lines
         blend: opaque
+    oneway-arrow:
+        base: points
+        texture: oneway-arrow
