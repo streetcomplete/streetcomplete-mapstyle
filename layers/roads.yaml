@@ -126,6 +126,17 @@ layers:
                     angle: auto
                     text:
                         visible: false
+    pois:
+        data: { source: mapzen }
+        barrier:
+            filter: { kind: [gate, bollard, lift_gate, cycle_barrier, stile, block, toll_booth, kissing_gate, swing_gate, chain, cattle_grid, border_control], $zoom: { min: 17 }}
+            draw:
+                points:
+                    buffer: 2px
+                    flat: true
+                    color: global.barrier_color
+                    size: [[17, 2px], [20, 16px]]
+
 styles:
     step_dashes:
         base: lines

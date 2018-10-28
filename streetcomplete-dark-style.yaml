@@ -35,6 +35,8 @@ global:
     boundary_color: '#e46'
 
     oneway_arrow_color: '#ccf'
+    barrier_color: '#ccf'
+
 styles:
     lines-railway-style:
         base: lines
