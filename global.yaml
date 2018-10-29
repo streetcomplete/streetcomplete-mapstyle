@@ -25,8 +25,8 @@ global:
 
     boundary_color: '#e66'
 
-    oneway_arrow_color: '#444'
-    barrier_color: '#444'
+    oneway_arrow_color: '#888'
+    barrier_color: '#888'
 
     name_source: |
         function() {

@@ -127,9 +127,9 @@ layers:
                     flat: true
                     buffer: 2px
                     color: global.oneway_arrow_color
-                    size: [[17, [6px, auto]], [20, [24px, auto]]]
+                    size: [[17, [6px, auto]], [20, [18px, auto]]]
                     placement: spaced
-                    placement_spacing: [[17, 40px], [20, 120px]]
+                    placement_spacing: [[17, 64px], [20, 256px]]
                     angle: auto
                     text:
                         visible: false
