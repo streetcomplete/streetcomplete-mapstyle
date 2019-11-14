@@ -5,33 +5,33 @@ const attribution = {
 };
 
 const mapzenLight = Tangram.leafletLayer({
-    scene: 'https://rawgit.com/ENT8R/streetcomplete-mapstyle/master/streetcomplete-light-style.yaml',
+    scene: 'https://cdn.jsdelivr.net/gh/ENT8R/streetcomplete-mapstyle@master/streetcomplete-light-style.yaml',
     attribution: attribution.mapzen
 });
 const mapzenDark = Tangram.leafletLayer({
-    scene: 'https://rawgit.com/ENT8R/streetcomplete-mapstyle/master/streetcomplete-dark-style.yaml',
+    scene: 'https://cdn.jsdelivr.net/gh/ENT8R/streetcomplete-mapstyle@master/streetcomplete-dark-style.yaml',
     attribution: attribution.mapzen
 });
 
 const mapboxLight = Tangram.leafletLayer({
-    scene: 'https://rawgit.com/ENT8R/streetcomplete-mapstyle/mapbox/streetcomplete-light-style.yaml',
+    scene: 'https://cdn.jsdelivr.net/gh/ENT8R/streetcomplete-mapstyle@mapbox/streetcomplete-light-style.yaml',
     attribution: attribution.mapbox
 });
 const mapboxDark = Tangram.leafletLayer({
-    scene: 'https://rawgit.com/ENT8R/streetcomplete-mapstyle/mapbox/streetcomplete-dark-style.yaml',
+    scene: 'https://cdn.jsdelivr.net/gh/ENT8R/streetcomplete-mapstyle@mapbox/streetcomplete-dark-style.yaml',
     attribution: attribution.mapbox
 });
 const mapboxSatellite = Tangram.leafletLayer({
-    scene: 'https://rawgit.com/ENT8R/streetcomplete-mapstyle/master/streetcomplete-satellite-style.yaml',
+    scene: 'https://cdn.jsdelivr.net/gh/ENT8R/streetcomplete-mapstyle@master/streetcomplete-satellite-style.yaml',
     attribution: attribution.mapbox
 });
 
 const terrestrisLight = Tangram.leafletLayer({
-    scene: 'https://rawgit.com/ENT8R/streetcomplete-mapstyle/terrestris/streetcomplete-light-style.yaml',
+    scene: 'https://cdn.jsdelivr.net/gh/ENT8R/streetcomplete-mapstyle@terrestris/streetcomplete-light-style.yaml',
     attribution: attribution.terrestris
 });
 const terrestrisDark = Tangram.leafletLayer({
-    scene: 'https://rawgit.com/ENT8R/streetcomplete-mapstyle/terrestris/streetcomplete-dark-style.yaml',
+    scene: 'https://cdn.jsdelivr.net/gh/ENT8R/streetcomplete-mapstyle@terrestris/streetcomplete-dark-style.yaml',
     attribution: attribution.terrestris
 });
 
