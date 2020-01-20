@@ -10,6 +10,7 @@ global:
     railway_color: '#99a'
     road_color: '#fff'
     highway_color: '#fff'
+    highway_outline_color: global.road_outline_color
     road_outline_color: '#cc9999'
     path_color: global.road_color
     path_outline_color: '#e0c9b3'

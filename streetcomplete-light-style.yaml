@@ -15,7 +15,7 @@ import:
 global:
     railway_color: '#99a'
     road_color: '#fff'
-    road_outline_color: '#cc9999'
+    road_outline_color: '#c99'
     path_color: global.road_color
     path_outline_color: '#e0c9b3'
     square_color: global.road_color
