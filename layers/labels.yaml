@@ -11,10 +11,10 @@ layers:
                     max_lines: 3
                     font:
                         family: global.text_font_family
-                        weight: normal
                         fill: global.text_fill_color
                         size: global.text_size
                         stroke: global.text_stroke
+                        weight: normal
 
     places:
         data: { source: mapzen}
@@ -25,8 +25,8 @@ layers:
                     text_source: global.name_source
                     buffer: 12px
                     font:
-                        fill: global.text_fill_color
                         family: global.text_font_family
+                        fill: global.text_fill_color
                         stroke: global.text_places_stroke
 
     buildings:
@@ -37,7 +37,7 @@ layers:
                 text:
                     text_source: addr_housenumber
                     font:
-                        fill: global.text_fill_color
                         family: global.text_font_family
+                        fill: global.text_fill_color
                         size: global.text_size
                         stroke: global.text_stroke
