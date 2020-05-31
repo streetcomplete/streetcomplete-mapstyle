@@ -27,6 +27,7 @@ layers:
                     font:
                         family: global.text_font_family
                         fill: global.text_fill_color
+                        size: global.text_size
                         stroke: global.text_places_stroke
 
     buildings:
