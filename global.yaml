@@ -72,7 +72,7 @@ sources:
 
 fonts:
     Montserrat:
-        - weight: normal
+        - weight: 400
           url: fonts/Montserrat-Regular.woff
         - weight: 500
           url: fonts/Montserrat-Medium.woff
