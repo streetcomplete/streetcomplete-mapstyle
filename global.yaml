@@ -7,6 +7,9 @@ global:
     text_fill_color: '#124'
     text_size: 12px
 
+    // following colors are in most cases overwritten
+    // ones that are used are defined in streetcomplete-light-style.yaml
+    // and streetcomplete-dark-style.yaml files
     railway_color: '#99a'
     road_color: '#fff'
     highway_color: '#fa8'
