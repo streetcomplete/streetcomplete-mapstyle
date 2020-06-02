@@ -7,34 +7,34 @@
     <title>StreetComplete MapStyle</title>
 
     <link rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-          integrity="sha384-odo87pn1N9OSsaqUCAOYH8ICyVxDZ4wtbGpSYO1oyg6LxyOjDuTeXTrVLuxUtFzv"
+          href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha384-eS4bw6aEvhCSXWGP85ANR/N8isWKzT7P36NvcuTJGkrj6wsbxLVpXslrNXYHyseD"
           crossorigin="anonymous">
 
-    <style>
-        body {
-            margin: 0px;
-            border: 0px;
-            padding: 0px;
-        }
-        #map {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
   </head>
 
   <body>
     <div id="map"></div>
+    <div id="layer-selection">
+      <button data-layer="light" class="active">Light</button>
+      <button data-layer="dark">Dark</button>
+      <button data-layer="satellite">Satellite</button>
+    </div>
   </body>
 
-  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-          integrity="sha384-GpAGrorfdflUEy8Ytywe9vwoZWj9qvDdi1XibsGSNUA80HuXzamaNlVTbi5NgIfL"
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+          integrity="sha384-wKOriz2x8/bF1D9t6PuKhSpxfhHeVi9huvyuxJrrShSJpi5+rmRIsM90UuWbdAYJ"
           crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/tangram@0.15.1/dist/tangram.min.js"
-          integrity="sha384-aDM38z7MObvfYUHwi0vt48q2tEcP+AwNd+LcswhKPcXMmI5UFrhVrxflGbpgkIHh"
-          crossorigin="anonymous"></script>
-  <script src="main.js"></script>
 
+  <script type="module"
+          src="https://unpkg.com/tangram@0.20.1/dist/tangram.min.mjs"
+          integrity="sha384-ffAeim42HAYMCbZbtmpmOeNWHfUWOEjg1A+dJw23uxK1Dw+8Cz4DhSc0ngwi5fn2"
+          crossorigin="anonymous"></script>
+  <script nomodule
+          src="https://unpkg.com/tangram@0.20.1/dist/tangram.min.js"
+          integrity="sha384-bIF3WkVHt2OdunlZyDiig98k5PbIrTkLS13St6G3cXPvC/pR3/VCV2OK0ZdcLhYi"
+          crossorigin="anonymous"></script>
+
+  <script defer src="main.js"></script>
 </html>

@@ -1,0 +1,46 @@
+body {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
+#map {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#layer-selection {
+  position: fixed;
+  bottom: 4vh;
+  width: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 400;
+}
+
+#layer-selection button {
+  width: 33.3%;
+  height: 36px;
+  background-color: white;
+  border: 1px solid #6200ee;
+  cursor: pointer;
+  float: left;
+  transition: all .5s;
+  letter-spacing: .1em;
+}
+
+#layer-selection button:not(:last-child) {
+  border-right: none;
+}
+
+#layer-selection button.active,
+#layer-selection button:hover {
+  background-color: #6200ee;
+  color: white;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#layer-selection button:hover {
+  background-color: rgba(98, 0, 238, 0.75);
+}
