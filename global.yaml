@@ -1,5 +1,5 @@
 global:
-    language: false
+    language: false # intended to be overwritten by StreetComplete
     text_font_family: 'Montserrat'
     text_stroke_color: 'white'
     text_stroke: { color: global.text_stroke_color, width: 2.5px }
