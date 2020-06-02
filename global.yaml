@@ -5,7 +5,17 @@ global:
     text_stroke: { color: global.text_stroke_color, width: 2.5px }
     text_places_stroke: { color: global.text_stroke_color, width: 2.5px }
     text_fill_color: '#124'
-    text_size: 12px
+    text_size_scaling: 1 # intended to be overwritten by StreetComplete
+    text_size: |
+      function() {
+        var size = 13;
+        if ($zoom >= 18 && $zoom < 19) {
+          size = 15;
+        } else if ($zoom >= 19) {
+          size = 17;
+        }
+        return (size * global.text_size_scaling) + "px";
+      }
 
     # The following colors are in most cases overwritten
     # ones that are used are defined in streetcomplete-light-style.yaml
