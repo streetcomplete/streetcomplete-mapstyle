@@ -81,6 +81,7 @@ layers:
                     - residential
                     - industrial
                     - railway
+                    - bus_station
                     - religious
                     - commercial
                     - retail
@@ -92,6 +93,7 @@ layers:
                     - school
                     - college
                     - kindergarten
+                    - library
                     - hospital
                     - nursing_home
                     - social_facility
@@ -121,6 +123,7 @@ layers:
                     - sports_centre
                     - recreation_ground
                     - pitch
+                    - track
                     - playground
                     - garden
                     - allotments
