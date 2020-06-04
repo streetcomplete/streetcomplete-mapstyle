@@ -30,8 +30,8 @@ layers:
                         size: global.text_size
                         stroke: global.text_places_stroke
 
-    buildings:
-        data: { source: mapzen}
+    housenumbers:
+        data: { source: mapzen, layer: buildings }
         address-labels:
             filter: { $zoom: { min: 19 }, kind: address }
             draw:
