@@ -53,11 +53,11 @@ layers:
         filter: { $zoom: { min: 16 }, hide_3d: false }
         draw:
             buildings-style:
-                order: 10
+                order: 100
                 color: global.building_color
                 extrude: function() { return feature.render_height; }
             buildings-outline-style:
-                order: 11
+                order: 101
                 color: global.building_outline_color
                 width: [[16, 1px], [18,2px], [19,4px]]
                 extrude: function() { return feature.render_height; }
