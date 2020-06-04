@@ -1,44 +1,90 @@
 layers:
-    roads:
-        data: { source: mapzen}
-        roads-labels:
-            filter: { $zoom: { min: 14 } }
-            draw:
-                text:
-                    text_source: global.name_source
-                    buffer: 8px
-                    text_wrap: 25
-                    max_lines: 3
-                    font:
-                        family: global.text_font_family
-                        fill: global.text_fill_color
-                        size: global.text_size
-                        stroke: global.text_stroke
-                        weight: normal
 
-    places:
-        data: { source: mapzen}
-        places-labels:
-            filter: {name: true, not: {source: [whosonfirst.org]}}
-            draw:
-                text:
-                    text_source: global.name_source
-                    buffer: 12px
-                    font:
-                        family: global.text_font_family
-                        fill: global.text_fill_color
-                        size: global.text_size
-                        stroke: global.text_places_stroke
+    road-labels:
+        data: { source: openmaptiles, layer: transportation_name }
+        filter: { $zoom: { min: 14 } }
+        draw:
+            text:
+                text_source: global.name_source
+                buffer: 8px
+                text_wrap: 25
+                max_lines: 3
+                priority: 20
+                font:
+                    family: global.text_font_family
+                    fill: global.text_fill_color
+                    size: global.text_size
+                    stroke: global.text_stroke
+                    weight: normal
 
-    buildings:
-        data: { source: mapzen}
-        address-labels:
-            filter: { $zoom: { min: 19 }, kind: address }
+    place-labels:
+        data: { source: openmaptiles, layer: place }
+        filter: { not: { class: continent }}
+        draw:
+            text:
+                visible: false
+                text_source: global.name_source
+                buffer: 4px
+                font:
+                    family: global.text_font_family
+                    fill: global.text_fill_color
+                    size: global.text_size
+                    stroke: global.text_places_stroke
+
+        country:
+            filter: { class: country }
             draw:
                 text:
-                    text_source: addr_housenumber
-                    font:
-                        family: global.text_font_family
-                        fill: global.text_fill_color
-                        size: global.text_size
-                        stroke: global.text_stroke
+                    visible: true
+                    priority: function() { return feature.rank }
+
+        city:
+            filter: { class: city, $zoom: { min: 6 } }
+            draw:
+                text:
+                    visible: true
+                    # rank 6 is the lowest rank of a country
+                    priority: function() { return 6 + feature.rank }
+
+        town-and-suburb:
+            filter: { class: [town, suburb], $zoom: { min: 9 } }
+            draw:
+                text:
+                    visible: true
+                    # 10 + 6 is the lowest rank of a city
+                    priority: 17
+
+        village-and-neighbourhood:
+            filter: { class: [village, neighbourhood], $zoom: { min: 11 } }
+            draw:
+                text:
+                    visible: true
+                    priority: 18
+
+        other:
+            filter: { class: [isolated_dwelling], $zoom: { min: 13 } }
+            draw:
+                text:
+                    visible: true
+                    priority: 19
+
+    housenumber-labels:
+        # openmaptiles: apparently this information is missing
+        data: { source: openmaptiles, layer: housenumber }
+        filter: { $zoom: { min: 19 } }
+        draw:
+            text:
+                text_source: housenumber
+                priority: 30
+                font:
+                    family: global.text_font_family
+                    fill: global.text_fill_color
+                    size: global.text_size
+                    stroke: global.text_stroke
+
+global:
+    name_source: |
+        function() {
+            // Use preferred language label if available
+            return (global.language && feature['name_'+global.language]) || feature.name;
+        }

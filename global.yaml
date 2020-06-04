@@ -78,10 +78,12 @@ lights:
         ambient: 0.7
 
 sources:
-    mapzen:
+    openmaptiles:
         type: MVT
-        url: https://tiles.map-data.de/vector/v1/512/all/{z}/{x}/{y}.mvt
+        url: https://tiles.stadiamaps.com/data/openmaptiles/{z}/{x}/{y}.pbf
         max_zoom: 16
+        url_params:
+            api_key: 
 
 fonts:
     Montserrat:

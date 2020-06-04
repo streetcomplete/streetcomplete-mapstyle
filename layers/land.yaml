@@ -1,86 +1,101 @@
 layers:
 
-    earth:
-        data: { source: mapzen}
-        draw:
-            polygons:
-                order: global.sort_rank
-                color: global.earth_color
-
     boundaries:
-        data: { source: mapzen}
-        filter: { kind: country }
+        data: { source: openmaptiles, layer: boundary }
+        filter: { admin_level: 2, not: { maritime: 1 }}
         draw:
             boundary_dashes:
-                order: global.sort_rank
+                order: 80
                 color: global.boundary_color
                 width: 1px
 
     water:
-        data: { source: mapzen}
-        filter: {not: {is_tunnel: true}}
-
+        data: { source: openmaptiles }
+        filter: { not: { brunnel: tunnel }}
         draw:
-            lines:
-                order: global.sort_rank
-                join: round
-                cap: square
+            polygons:
+                order: 2
+                color: global.water_color
 
         shore_lines:
-            filter: { boundary: true, $zoom: { min: 16 } }
+            filter: { $zoom: { min: 16 } }
             draw:
                 lines-coast:
-                    order: 220
+                    order: 3
                     width: [[16,20px],[18,10m]] # actually visually 1/3
                     color: global.water_color
 
+    waterways:
+        data: { source: openmaptiles , layer: waterway }
+        filter: { not: { brunnel: tunnel }}
+        draw:
+            lines:
+                order: 3
+                join: round
+                cap: square
+
         river_lines:
-            filter: { kind: [river, canal] }
+            filter: { class: [river, canal] }
             draw:
                 lines:
                     color: global.water_color
                     width: [[10, 1px], [17, 6px], [18, 12m]]
 
         stream_lines:
-            filter: { kind: [stream, ditch, drain], $zoom: { min: 15 }}
+            filter: { class: [stream, ditch, drain], $zoom: { min: 15 }}
             draw:
                 lines:
                     color: global.water_color
                     width: [[15, 1px], [17, 2px], [18, 5m]]
 
-        water_areas:
-            draw:
-                polygons:
-                    order: global.sort_rank
-                    color: global.water_color
-
-
     buildings:
-        data: { source: mapzen}
-        filter: {not: { location: underground }, $zoom: { min: 16 } }
-
+        data: { source: openmaptiles, layer: building }
+        filter: { $zoom: { min: 16 }, hide_3d: false }
         draw:
             buildings-style:
-                order: global.sort_rank
+                order: 10
                 color: global.building_color
-                extrude: true
+                extrude: function() { return feature.render_height; }
             buildings-outline-style:
-                order: function() { return feature.sort_rank+1; }
+                order: 11
                 color: global.building_outline_color
                 width: [[16, 1px], [18,2px], [19,4px]]
-                extrude: true
+                extrude: function() { return feature.render_height; }
 
-    landuse:
-        data: { source: mapzen }
+    landcover:
+        data: { source: openmaptiles }
         draw:
             polygons:
-                order: global.sort_rank
+                order: 1
+        green:
+            filter:
+                class:
+                    - farmland
+                    - grass
+            draw:
+                polygons:
+                    color: global.green_color
+        trees:
+            filter:
+                class:
+                    - wood
+            draw:
+                polygons:
+                    order: 1
+                    color: global.forest_color
+
+    landuse:
+        data: { source: openmaptiles }
+        draw:
+            polygons:
+                order: 1
         town:
             filter:
-                kind:
+                class:
                     - residential
                     - industrial
                     - railway
+                    - bus_station
                     - religious
                     - commercial
                     - retail
@@ -92,6 +107,7 @@ layers:
                     - school
                     - college
                     - kindergarten
+                    - library
                     - hospital
                     - nursing_home
                     - social_facility
@@ -104,74 +120,31 @@ layers:
                     color: global.town_color
         green:
             filter:
-                kind:
-                    - meadow
-                    - farmland
-                    - grassland
-                    - heath
-                    - grass
-                    - greenfield
-                    - village_green
-                    - dog_park
-                    - park
-                    - graveyard
+                class:
                     - cemetery
-                    - golf_course
-                    - miniature_golf
-                    - sports_centre
-                    - recreation_ground
-                    - pitch
                     - playground
-                    - garden
-                    - allotments
-                    - petting_zoo
+                    - pitch
+                    - track
                     - zoo
-                    - wildlife_park
-                    - maze
-                    - resort
             draw:
                 polygons:
                     color: global.green_color
-        trees:
-            filter:
-                kind:
-                    - scrub
-                    - orchard
-                    - plant_nursery
-                    - vineyard
-                    - forest
-                    - wood
-                    - natural_wood
-                    - natural_forest
-                    - natural_park
-            draw:
-                polygons:
-                    color: global.forest_color
-        city_walls:
-            filter: { kind: [city_wall, dam] }
-            draw:
-                buildings-outline-style:
-                    order: global.sort_rank
-                    color: global.building_outline_color
-                    width: [[12, 4px], [18, 8m]]
-        walls:
-            filter: { kind: [wall, retaining_wall, fence] }
-            draw:
-                buildings-outline-style:
-                    order: global.sort_rank
-                    color: global.building_outline_color
-                    width: [[15, 1px], [18, 2m]]
 
+    # openmaptiles: city walls, dams, walls, retaining walls, fences don't seem to exist
+
+    pedestrian-areas:
+        data: { source: openmaptiles , layer: transportation }
         squares:
-            filter: { kind: [pedestrian], $zoom: { min: 17 } }
+            filter: { subclass: [pedestrian] , $zoom: { min: 17 } }
             draw:
                 lines:
                     color: global.square_outline_color
                     width: function () { return 1/4 * Math.log($zoom); }
-                    order: 200
+                    order: 20
                 polygons:
                     color: global.square_color
-                    order: 360
+                    order: 21
+
 
 styles:
     boundary_dashes:
