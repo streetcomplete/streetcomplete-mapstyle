@@ -17,9 +17,25 @@ layers:
                     stroke: global.text_stroke
                     weight: normal
 
+    country-labels:
+        data: { source: openmaptiles, layer: place }
+        filter: { class: country }
+        draw:
+            text:
+                text_source: global.name_source
+                buffer: 12px
+                priority: function() { return feature.rank }
+                font:
+                    family: global.text_font_family
+                    fill: global.text_fill_color
+                    size: global.text_size
+                    stroke: global.text_countries_stroke
+                    transform: uppercase
+                    weight: bold
+
     place-labels:
         data: { source: openmaptiles, layer: place }
-        filter: { not: { class: continent }}
+        filter: { not: { class: [continent, country] }}
         draw:
             text:
                 visible: false
@@ -30,13 +46,6 @@ layers:
                     fill: global.text_fill_color
                     size: global.text_size
                     stroke: global.text_places_stroke
-
-        country:
-            filter: { class: country }
-            draw:
-                text:
-                    visible: true
-                    priority: function() { return feature.rank }
 
         city:
             filter: { class: city, $zoom: { min: 6 } }
