@@ -62,7 +62,7 @@ layers:
                     priority: 18
 
         other:
-            filter: { class: [isolated_dwelling], $zoom: { min: 13 } }
+            filter: { class: [hamlet, isolated_dwelling], $zoom: { min: 13 } }
             draw:
                 text:
                     visible: true
