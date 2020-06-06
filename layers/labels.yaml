@@ -23,13 +23,15 @@ layers:
         draw:
             text:
                 text_source: global.name_source
-                buffer: 4px
+                buffer: 12px
                 priority: function() { return feature.scalerank }
                 font:
                     family: global.text_font_family
                     fill: global.text_fill_color
                     size: global.text_size
-                    stroke: global.text_places_stroke
+                    stroke: global.text_countries_stroke
+                    transform: uppercase
+                    weight: bold
 
     place-labels:
         data: { source: jawg, layer: place_label }
