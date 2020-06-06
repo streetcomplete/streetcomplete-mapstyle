@@ -79,12 +79,13 @@ lights:
         ambient: 0.7
 
 sources:
-    openmaptiles:
+    thunderforest:
         type: MVT
-        url: https://tiles.stadiamaps.com/data/openmaptiles/{z}/{x}/{y}.pbf
-        max_zoom: 16
+        url: https://{s}.tile.thunderforest.com/thunderforest.outdoors-v2/{z}/{x}/{y}.vector.pbf
+        max_zoom: 14
+        url_subdomains: [a, b, c]
         url_params:
-            api_key: 
+            apikey: 42fc95e47c0c4ef292eacf6f07719335
 
 textures:
     oneway-arrow:

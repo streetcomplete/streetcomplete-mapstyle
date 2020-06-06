@@ -1,17 +1,33 @@
 layers:
 
     boundaries:
-        data: { source: openmaptiles, layer: boundary }
-        filter: { admin_level: 2, not: { maritime: 1 }}
+        data: { source: thunderforest, layer: country-line }
         draw:
             boundary_dashes:
                 order: 80
                 color: global.boundary_color
                 width: 1px
 
+    # thunderforest: there is also layer state-line
+
+    ocean:
+        data: { source: thunderforest, layer: ocean }
+        draw:
+            polygons:
+                order: 2
+                color: global.water_color
+
+        shore_lines:
+            filter: { $zoom: { min: 16 } }
+            draw:
+                lines-coast:
+                    order: 3
+                    width: [[16,20px],[18,10m]] # actually visually 1/3
+                    color: global.water_color
+        
     water:
-        data: { source: openmaptiles }
-        filter: { not: { brunnel: tunnel }}
+        data: { source: thunderforest, layer: water }
+        filter: { not: { tunnel: yes }}
         draw:
             polygons:
                 order: 2
@@ -26,8 +42,8 @@ layers:
                     color: global.water_color
 
     waterways:
-        data: { source: openmaptiles , layer: waterway }
-        filter: { not: { brunnel: tunnel }}
+        data: { source: thunderforest , layer: waterway }
+        filter: { not: { tunnel: yes }}
         draw:
             lines:
                 order: 3
@@ -35,22 +51,23 @@ layers:
                 cap: square
 
         river_lines:
-            filter: { class: [river, canal] }
+            filter: { waterway: [river, canal] }
             draw:
                 lines:
                     color: global.water_color
                     width: [[10, 1px], [17, 6px], [18, 12m]]
 
         stream_lines:
-            filter: { class: [stream, ditch, drain], $zoom: { min: 15 }}
+            filter: { waterway: [stream, ditch, drain], $zoom: { min: 15 }}
             draw:
                 lines:
                     color: global.water_color
                     width: [[15, 1px], [17, 2px], [18, 5m]]
 
     buildings:
-        data: { source: openmaptiles, layer: building }
-        filter: { $zoom: { min: 16 }, hide_3d: false }
+        data: { source: thunderforest, layer: building }
+        # thunderforest: any 3d buildings?
+        filter: { $zoom: { min: 16 } }
         draw:
             buildings-style:
                 order: 100
@@ -63,35 +80,32 @@ layers:
                 extrude: function() { return feature.render_height; }
 
     landcover:
-        data: { source: openmaptiles }
+        data: { source: thunderforest, layer: landcover }
         draw:
             polygons:
                 order: 1
         green:
             filter:
-                class:
-                    - farmland
-                    - grass
+                type: [heath, grassland, grass, farmland, meadow]
             draw:
                 polygons:
                     color: global.green_color
         trees:
             filter:
-                class:
-                    - wood
+                type: [scrub, wood, forest, orchard, vineyard]
             draw:
                 polygons:
                     order: 1
                     color: global.forest_color
 
     landuse:
-        data: { source: openmaptiles }
+        data: { source: thunderforest, layer: landuse }
         draw:
             polygons:
                 order: 1
         town:
             filter:
-                class:
+                type:
                     - residential
                     - industrial
                     - railway
@@ -120,22 +134,68 @@ layers:
                     color: global.town_color
         green:
             filter:
-                class:
+                type:
+                    - greenfield
+                    - village_green
+                    - dog_park
+                    - park
+                    - graveyard
                     - cemetery
-                    - playground
+                    - golf_course
+                    - miniature_golf
+                    - sports_centre
+                    - recreation_ground
                     - pitch
                     - track
+                    - playground
+                    - garden
+                    - allotments
+                    - petting_zoo
                     - zoo
+                    - wildlife_park
+                    - maze
+                    - resort
             draw:
                 polygons:
                     color: global.green_color
 
-    # openmaptiles: city walls, dams, walls, retaining walls, fences don't seem to exist
+    poi-areas:
+        data: { source: thunderforest, layer: poi-area }
+        draw:
+            polygons:
+                order: 1
+        town:
+            filter:
+                feature:
+                    - hospital
+            draw:
+                polygons:
+                    color: global.town_color
+        green:
+            filter:
+                feature:
+                    - zoo
+                    - camp_site
+                    - caravan_site
+                    - picnic_site
+            draw:
+                polygons:
+                    color: global.green_color
+
+    walls:
+        data: { source: thunderforest , layer: barrier }
+        draw:
+            buildings-outline-style:
+                order: 100
+                color: global.building_outline_color
+                width: [[15, 1px], [18, 2m]]
+
+    # thunderforest: city walls, retaining walls don't seem to exist
 
     pedestrian-areas:
-        data: { source: openmaptiles , layer: transportation }
+        data: { source: thunderforest , layer: road-area }
         squares:
-            filter: { subclass: [pedestrian] , $zoom: { min: 17 } }
+            filter: { highway: [pedestrian] , $zoom: { min: 17 } }
             draw:
                 lines:
                     color: global.square_outline_color
@@ -145,6 +205,8 @@ layers:
                     color: global.square_color
                     order: 21
 
+
+    # thunderforest: there is also the layer elevation (w/ height=), hillshade (w/ level= 110..180..230)
 
 styles:
     boundary_dashes:

@@ -1,7 +1,24 @@
 layers:
 
     road-labels:
-        data: { source: openmaptiles, layer: transportation_name }
+        data: { source: thunderforest, layer: road-label }
+        filter: { $zoom: { min: 14 } }
+        draw:
+            text:
+                text_source: global.name_source
+                buffer: 8px
+                text_wrap: 25
+                max_lines: 3
+                priority: 20
+                font:
+                    family: global.text_font_family
+                    fill: global.text_fill_color
+                    size: global.text_size
+                    stroke: global.text_stroke
+                    weight: normal
+
+    path-labels:
+        data: { source: thunderforest, layer: path-label }
         filter: { $zoom: { min: 14 } }
         draw:
             text:
@@ -18,13 +35,12 @@ layers:
                     weight: normal
 
     country-labels:
-        data: { source: openmaptiles, layer: place }
-        filter: { class: country }
+        data: { source: thunderforest, layer: country-label }
+        # thunderforest: possibility to sort by rank? What is the range?
         draw:
             text:
                 text_source: global.name_source
                 buffer: 12px
-                priority: function() { return feature.rank }
                 font:
                     family: global.text_font_family
                     fill: global.text_fill_color
@@ -33,14 +49,17 @@ layers:
                     transform: uppercase
                     weight: bold
 
+    # thunderforest: there is also layer state-label, waterway-label, landcover-label, water-label, landuse-label
+
     place-labels:
-        data: { source: openmaptiles, layer: place }
-        filter: { not: { class: [continent, country] }}
+        data: { source: thunderforest, layer: place-label }
         draw:
             text:
                 visible: false
                 text_source: global.name_source
                 buffer: 4px
+                # thunderforest: if there are ranks for countries, what is the range?
+                priority: function() { return 6 + feature.place_priority }
                 font:
                     family: global.text_font_family
                     fill: global.text_fill_color
@@ -48,38 +67,32 @@ layers:
                     stroke: global.text_places_stroke
 
         city:
-            filter: { class: city, $zoom: { min: 6 } }
+            filter: { place: city, $zoom: { min: 6 } }
             draw:
                 text:
                     visible: true
-                    # rank 6 is the lowest rank of a country
-                    priority: function() { return 6 + feature.rank }
 
         town-and-suburb:
-            filter: { class: [town, suburb], $zoom: { min: 9 } }
+            filter: { place: [town, suburb], $zoom: { min: 9 } }
             draw:
                 text:
                     visible: true
-                    # 10 + 6 is the lowest rank of a city
-                    priority: 17
 
         village-and-neighbourhood:
-            filter: { class: [village, neighbourhood], $zoom: { min: 11 } }
+            filter: { place: [village, neighbourhood], $zoom: { min: 11 } }
             draw:
                 text:
                     visible: true
-                    priority: 18
 
         other:
-            filter: { class: [hamlet, isolated_dwelling], $zoom: { min: 13 } }
+            filter: { place: [hamlet, isolated_dwelling], $zoom: { min: 13 } }
             draw:
                 text:
                     visible: true
-                    priority: 19
 
     housenumber-labels:
-        # openmaptiles: apparently this information is missing
-        data: { source: openmaptiles, layer: housenumber }
+        # thunderforest: no housenumbers?
+        data: { source: thunderforest, layer: address }
         filter: { $zoom: { min: 19 } }
         draw:
             text:
