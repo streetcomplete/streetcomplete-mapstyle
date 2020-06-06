@@ -15,9 +15,24 @@ layers:
                     stroke: global.text_stroke
                     weight: normal
 
+    country-labels:
+        data: { source: mapzen, layer: places }
+        filter: {name: true, kind: country, not: {source: [whosonfirst.org]}}
+        draw:
+            text:
+                text_source: global.name_source
+                buffer: 12px
+                font:
+                    family: global.text_font_family
+                    fill: global.text_fill_color
+                    size: global.text_size
+                    stroke: global.text_countries_stroke
+                    transform: uppercase
+                    weight: bold
+
     place-labels:
         data: { source: mapzen, layer: places }
-        filter: {name: true, not: {source: [whosonfirst.org]}}
+        filter: {name: true, not: {source: [whosonfirst.org], kind: country}}
         draw:
             text:
                 text_source: global.name_source
