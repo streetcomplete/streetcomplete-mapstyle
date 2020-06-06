@@ -1,24 +1,24 @@
-# StreetComplete Mapstyle
+# StreetComplete map style
 
-The goal of this project is to create a new style for the map which will be used by the android application [StreetComplete](https://github.com/westnordost/StreetComplete)
+This is the map style used in the the android application [StreetComplete](https://github.com/westnordost/StreetComplete), an easy OpenStreetMap editor.
+
+There are three variations on the style available: light, dark and satellite-style.
 
 <img src="https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/gh-pages/images/light.png" height="200px"> <img src="https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/gh-pages/images/dark.png" height="200px"> <img src="https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/gh-pages/images/satellite.png" height="200px">
 
-## Getting started
+## Purpose of this map style
 
-### What is missing?
+This map style's design goal is to serve as a background map, used solely for visual orientation and navigating as a pedestrian while using the StreetComplete app during an (on-foot) survey.
+It is designed to not visually distract the user from the quests that are displayed on the map. Elements that are neither relevant for orientation nor for quests asked in the app itself, are not displayed at all.
 
-To get an overview of what is missing on the map, you should have a look at the [issue tracker](https://github.com/ENT8R/streetcomplete-mapstyle/issues) of this repository. Everything which is missing on the map should be documented there. And if you have a new idea which you can't find in the issue tracker, then you can simply open a new issue for that and tell us about your idea!
+## Compatibility
 
-If you start to edit the style keep in mind that:
-* the map should not distract from the app's sole purpose
-* StreetComplete is not a map application (map has not to be very detailed)
+Every vector map tiles hoster has his own schema, so every map style is per se only compatible with the schema it was created for. The style was originally created for are for the [mapzen/nextzen](https://www.nextzen.org/) schema. However, it has been adapted to work (with some reservations) with other vector tile schemes as well. It is available for:
 
-### What should not be added?
-* No POIs
-* No elements which have no relation to the [quests](http://wiki.openstreetmap.org/wiki/StreetComplete/Quests) of StreetComplete
-* Only things need to be shown that matter on the survey (on foot)
-* That's it! Go ahead and create something awesome!
+- [nextzen](https://www.nextzen.org/) on the `[master](https://github.com/ENT8R/streetcomplete-mapstyle/tree/master)` branch 
+- [openmaptiles](https://openmaptiles.org/schema/) on branch `[openmaptiles](https://github.com/ENT8R/streetcomplete-mapstyle/tree/openmaptiles)`
+- [jawg.io](https://www.jawg.io/en/maps) on branch `[jawg](https://github.com/ENT8R/streetcomplete-mapstyle/tree/jawg)`
+
 
 ## Contributing
 
