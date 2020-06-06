@@ -18,7 +18,7 @@ Every vector map tiles hoster has his own schema, so every map style is per se o
 - [nextzen](https://www.nextzen.org/) on the [`master`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/master) branch 
 - [openmaptiles](https://openmaptiles.org/schema/) on branch [`openmaptiles`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/openmaptiles)
 - [jawg.io](https://www.jawg.io/en/maps) on branch [`jawg`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/jawg)
-
+- [thunderforest outdoors](https://www.thunderforest.com/docs/thunderforest.outdoors-v2/) on branch [`thunderforest`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/thunderforest)
 
 ## Contributing
 
