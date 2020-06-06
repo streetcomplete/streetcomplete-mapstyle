@@ -1,7 +1,6 @@
 layers:
-
     road-labels:
-        data: { source: openmaptiles, layer: transportation_name }
+        data: { source: jawg, layer: road_label }
         filter: { $zoom: { min: 14 } }
         draw:
             text:
@@ -9,7 +8,7 @@ layers:
                 buffer: 8px
                 text_wrap: 25
                 max_lines: 3
-                priority: 20
+                priority: 25
                 font:
                     family: global.text_font_family
                     fill: global.text_fill_color
@@ -17,9 +16,23 @@ layers:
                     stroke: global.text_stroke
                     weight: normal
 
+    # jawg: state_label, marine_label, waterway_label, waterarea_label, mountain_peak, poi_label (w/ type=, zoomrank=) exists
+
+    country-labels:
+        data: { source: jawg, layer: country_label }
+        draw:
+            text:
+                text_source: global.name_source
+                buffer: 4px
+                priority: function() { return feature.scalerank }
+                font:
+                    family: global.text_font_family
+                    fill: global.text_fill_color
+                    size: global.text_size
+                    stroke: global.text_places_stroke
+
     place-labels:
-        data: { source: openmaptiles, layer: place }
-        filter: { not: { class: continent }}
+        data: { source: jawg, layer: place_label }
         draw:
             text:
                 visible: false
@@ -31,56 +44,48 @@ layers:
                     size: global.text_size
                     stroke: global.text_places_stroke
 
-        country:
-            filter: { class: country }
-            draw:
-                text:
-                    visible: true
-                    priority: function() { return feature.rank }
-
         city:
-            filter: { class: city, $zoom: { min: 6 } }
+            filter: { type: city, $zoom: { min: 6 } }
             draw:
                 text:
                     visible: true
-                    # rank 6 is the lowest rank of a country
-                    priority: function() { return 6 + feature.rank }
+                    priority: function() { return 10 + feature.scalerank }
 
         town-and-suburb:
-            filter: { class: [town, suburb], $zoom: { min: 9 } }
+            filter: { type: [town, suburb], $zoom: { min: 9 } }
             draw:
                 text:
                     visible: true
-                    # 10 + 6 is the lowest rank of a city
-                    priority: 17
+                    priority: 21
 
         village-and-neighbourhood:
-            filter: { class: [village, neighbourhood], $zoom: { min: 11 } }
+            filter: { type: [village, neighbourhood], $zoom: { min: 11 } }
             draw:
                 text:
                     visible: true
-                    priority: 18
+                    priority: 22
 
         other:
-            filter: { class: [isolated_dwelling], $zoom: { min: 13 } }
+            filter: { type: [hamlet, isolated_dwelling], $zoom: { min: 13 } }
             draw:
                 text:
                     visible: true
-                    priority: 19
+                    priority: 23
 
     housenumber-labels:
-        # openmaptiles: apparently this information is missing
-        data: { source: openmaptiles, layer: housenumber }
+        data: { source: jawg, layer: housenum_label }
         filter: { $zoom: { min: 19 } }
         draw:
             text:
-                text_source: housenumber
+                text_source: house_num
                 priority: 30
                 font:
                     family: global.text_font_family
                     fill: global.text_fill_color
                     size: global.text_size
                     stroke: global.text_stroke
+
+    # jawg: no name_en labels exist
 
 global:
     name_source: |

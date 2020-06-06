@@ -1,7 +1,7 @@
 layers:
 
     boundaries:
-        data: { source: openmaptiles, layer: boundary }
+        data: { source: jawg, layer: admin }
         filter: { admin_level: 2, not: { maritime: 1 }}
         draw:
             boundary_dashes:
@@ -9,9 +9,25 @@ layers:
                 color: global.boundary_color
                 width: 1px
 
+    waterareas:
+        data: { source: jawg , layer: waterarea }
+        filter: { not: { tunnel: 1 }}
+        draw:
+            polygons:
+                order: 2
+                color: global.water_color
+
+        shore_lines:
+            filter: { $zoom: { min: 16 } }
+            draw:
+                lines-coast:
+                    order: 3
+                    width: [[16,20px],[18,10m]] # actually visually 1/3
+                    color: global.water_color
+
     water:
-        data: { source: openmaptiles }
-        filter: { not: { brunnel: tunnel }}
+        data: { source: jawg }
+        filter: { not: { tunnel: 1 }}
         draw:
             polygons:
                 order: 2
@@ -26,8 +42,8 @@ layers:
                     color: global.water_color
 
     waterways:
-        data: { source: openmaptiles , layer: waterway }
-        filter: { not: { brunnel: tunnel }}
+        data: { source: jawg, layer: waterway }
+        filter: { not: { tunnel: 1 }}
         draw:
             lines:
                 order: 3
@@ -35,107 +51,130 @@ layers:
                 cap: square
 
         river_lines:
-            filter: { class: [river, canal] }
+            filter: { class: [river, canal, river_intermittent] }
             draw:
                 lines:
                     color: global.water_color
                     width: [[10, 1px], [17, 6px], [18, 12m]]
 
         stream_lines:
-            filter: { class: [stream, ditch, drain], $zoom: { min: 15 }}
+            filter: { class: [stream, stream_intermittent, ditch, drain], $zoom: { min: 15 }}
             draw:
                 lines:
                     color: global.water_color
                     width: [[15, 1px], [17, 2px], [18, 5m]]
 
     buildings:
-        data: { source: openmaptiles, layer: building }
-        filter: { $zoom: { min: 16 }, hide_3d: false }
+        data: { source: jawg, layer: building }
+        # TODO jawg: 3d buildings overriding 3d building parts
+        filter: { $zoom: { min: 16 } }
         draw:
             buildings-style:
                 order: 100
                 color: global.building_color
-                extrude: function() { return feature.render_height; }
+                extrude: true
             buildings-outline-style:
                 order: 101
                 color: global.building_outline_color
                 width: [[16, 1px], [18,2px], [19,4px]]
-                extrude: function() { return feature.render_height; }
-
-    landcover:
-        data: { source: openmaptiles }
-        draw:
-            polygons:
-                order: 1
-        green:
-            filter:
-                class:
-                    - farmland
-                    - grass
-            draw:
-                polygons:
-                    color: global.green_color
-        trees:
-            filter:
-                class:
-                    - wood
-            draw:
-                polygons:
-                    order: 1
-                    color: global.forest_color
+                extrude: true
 
     landuse:
-        data: { source: openmaptiles }
+        data: { source: jawg }
         draw:
             polygons:
                 order: 1
         town:
             filter:
                 class:
-                    - residential
+                    # jawg: all areas marked with X not available on jawg
+                    - residential # X
                     - industrial
-                    - railway
-                    - bus_station
-                    - religious
+                    - railway # X
+                    - bus_station # X
+                    - religious # X
                     - commercial
-                    - retail
-                    - garages
-                    - farmyard
-                    - construction
+                    - retail # X
+                    - garages # X
+                    - farmyard # X
+                    - construction # X
                     # all the below are not really landuses but sometimes drawn outside of residential/commercial landuses
                     - university
                     - school
                     - college
                     - kindergarten
-                    - library
+                    - library # X
                     - hospital
-                    - nursing_home
-                    - social_facility
-                    - clinic
+                    - nursing_home # X
+                    - social_facility # X
+                    - clinic # X
                     - parking
-                    - conference_centre
-                    - theme_park
+                    - conference_centre # X
+                    - theme_park # X
             draw:
                 polygons:
                     color: global.town_color
         green:
             filter:
                 class:
+                    - meadow # X
+                    - farmland # X
+                    - grassland # X
+                    - heath # X
+                    - grass
+                    - greenfield # X
+                    - village_green # X
+                    - dog_park # X
+                    - park
+                    - graveyard # X
                     - cemetery
-                    - playground
+                    - golf_course # X
+                    - miniature_golf # X
+                    - sports_centre # X
+                    - recreation_ground # X
                     - pitch
-                    - track
-                    - zoo
+                    - track # X
+                    - playground # X
+                    - garden # X
+                    - allotments # X
+                    - petting_zoo # X
+                    - zoo # X
+                    - wildlife_park # X
+                    - maze # X
+                    - resort # X
             draw:
                 polygons:
                     color: global.green_color
+        trees:
+            filter:
+                class:
+                    - scrub
+                    - orchard # X
+                    - plant_nursery # X
+                    - vineyard # X
+                    - forest # X
+                    - wood
+                    - natural_wood # X
+                    - natural_forest # X
+                    - natural_park # X
+            draw:
+                polygons:
+                    order: 1
+                    color: global.forest_color
 
-    # openmaptiles: city walls, dams, walls, retaining walls, fences don't seem to exist
+    # jawg: city walls, dams, walls, retaining walls, fences don't seem to exist; barrier_line layer doesn't seem to work
+    walls:
+        filter: { layer: barrier_line }
+        draw:
+            buildings-outline-style:
+                order: 101
+                color: global.building_outline_color
+                width: [[15, 1px], [18, 2m]]
 
     pedestrian-areas:
-        data: { source: openmaptiles , layer: transportation }
+        data: { source: jawg , layer: road }
         squares:
-            filter: { subclass: [pedestrian] , $zoom: { min: 17 } }
+            filter: { class: street_limited, type: pedestrian , $zoom: { min: 17 } }
             draw:
                 lines:
                     color: global.square_outline_color
@@ -144,6 +183,8 @@ layers:
                 polygons:
                     color: global.square_color
                     order: 21
+
+    # jawg: layer hillshade exists (w/ highlight=1-2, shadow=1-4)
 
 
 styles:
