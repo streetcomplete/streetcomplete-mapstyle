@@ -82,7 +82,7 @@ sources:
     openmaptiles:
         type: MVT
         url: https://tiles.stadiamaps.com/data/openmaptiles/{z}/{x}/{y}.pbf
-        max_zoom: 16
+        max_zoom: 14
         url_params:
             api_key: 
 
