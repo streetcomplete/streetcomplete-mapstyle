@@ -182,15 +182,29 @@ layers:
                 polygons:
                     color: global.green_color
 
-    walls:
+    barriers:
         data: { source: thunderforest , layer: barrier }
-        draw:
-            buildings-outline-style:
-                order: 100
-                color: global.building_outline_color
-                width: [[15, 1px], [18, 2m]]
-
-    # thunderforest: city walls, retaining walls don't seem to exist
+        city_walls:
+            filter: { feature: [city_wall, dam] }
+            draw:
+                buildings-outline-style:
+                    order: 100
+                    color: global.building_outline_color
+                    width: [[12, 4px], [18, 8m]]
+        walls:
+            filter: { feature: [wall, retaining_wall, fence] }
+            draw:
+                buildings-outline-style:
+                    order: 100
+                    color: global.building_outline_color
+                    width: [[15, 1px], [18, 2m]]
+        hedge:
+            filter: { feature: [hedge, hedge_bank] }
+            draw:
+                buildings-outline-style:
+                    order: 100
+                    color: global.forest_color
+                    width: [[15, 1px], [18, 2m]]
 
     pedestrian-areas:
         data: { source: thunderforest , layer: road-area }

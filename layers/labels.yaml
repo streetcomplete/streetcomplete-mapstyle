@@ -16,6 +16,19 @@ layers:
                     size: global.text_size
                     stroke: global.text_stroke
                     weight: normal
+        oneway:
+            filter: { oneway: yes, $zoom: { min: 17 } }
+            draw:
+                oneway-arrow:
+                    flat: true
+                    buffer: 2px
+                    color: global.oneway_arrow_color
+                    size: [[17, [6px, auto]], [20, [18px, auto]]]
+                    placement: spaced
+                    placement_spacing: [[17, 64px], [20, 256px]]
+                    angle: auto
+                    text:
+                        visible: false
 
     path-labels:
         data: { source: thunderforest, layer: path-label }
@@ -36,11 +49,11 @@ layers:
 
     country-labels:
         data: { source: thunderforest, layer: country-label }
-        # thunderforest: possibility to sort by rank? What is the range?
         draw:
             text:
                 text_source: global.name_source
                 buffer: 12px
+                priority: function() { return feature.labelrank }
                 font:
                     family: global.text_font_family
                     fill: global.text_fill_color
@@ -58,7 +71,6 @@ layers:
                 visible: false
                 text_source: global.name_source
                 buffer: 4px
-                # thunderforest: if there are ranks for countries, what is the range?
                 priority: function() { return 6 + feature.place_priority }
                 font:
                     family: global.text_font_family
@@ -71,6 +83,8 @@ layers:
             draw:
                 text:
                     visible: true
+                    font:
+                        weight: bold
 
         town-and-suburb:
             filter: { place: [town, suburb], $zoom: { min: 9 } }
@@ -91,12 +105,11 @@ layers:
                     visible: true
 
     housenumber-labels:
-        # thunderforest: no housenumbers?
         data: { source: thunderforest, layer: address }
         filter: { $zoom: { min: 19 } }
         draw:
             text:
-                text_source: housenumber
+                text_source: addr_housenumber
                 priority: 30
                 font:
                     family: global.text_font_family
@@ -110,3 +123,8 @@ global:
             // Use preferred language label if available
             return (global.language && feature['name_'+global.language]) || feature.name;
         }
+
+styles:
+    oneway-arrow:
+        base: points
+        texture: oneway-arrow
