@@ -79,6 +79,7 @@ layers:
                     width: [[13, 0.5px], [17, 3px], [18, 4m]]
 
         path:
+            # jawg: not possible to filter out indoor paths
             filter: { class: path }
             draw:
                 lines:
