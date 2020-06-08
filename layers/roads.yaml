@@ -51,6 +51,7 @@ layers:
     # thunderforest: there is also a layer aeroway-area
 
     roads:
+        # thunderforest: not possible to filter out indoor paths
         data: { source: thunderforest, layer: road }
         filter: { not: { highway: [motorway, trunk] } }
         draw:
