@@ -50,7 +50,7 @@ layers:
 
     roads:
         data: { source: openmaptiles, layer: transportation }
-        filter: [ class: [primary, secondary, tertiary, minor, service, track, path], { class: [motorway, trunk], ramp: 1 } ]
+        filter: { [ class: [primary, secondary, tertiary, minor, service, track, path], { class: [motorway, trunk], ramp: 1 } ], not: { indoor: 1 } }
         draw:
             lines:
                 order: 30
