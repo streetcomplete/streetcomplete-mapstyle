@@ -84,64 +84,14 @@ layers:
         draw:
             polygons:
                 order: 1
-        town:
-            filter:
-                class:
-                    # jawg: all areas marked with X not available on jawg
-                    - residential # X
-                    - industrial
-                    - railway # X
-                    - bus_station # X
-                    - religious # X
-                    - commercial
-                    - retail # X
-                    - garages # X
-                    - farmyard # X
-                    - construction # X
-                    # all the below are not really landuses but sometimes drawn outside of residential/commercial landuses
-                    - university
-                    - school
-                    - college
-                    - kindergarten
-                    - library # X
-                    - hospital
-                    - nursing_home # X
-                    - social_facility # X
-                    - clinic # X
-                    - parking
-                    - conference_centre # X
-                    - theme_park # X
-            draw:
-                polygons:
-                    color: global.town_color
+                color: global.town_color
         green:
             filter:
                 class:
-                    - meadow # X
-                    - farmland # X
-                    - grassland # X
-                    - heath # X
                     - grass
-                    - greenfield # X
-                    - village_green # X
-                    - dog_park # X
                     - park
-                    - graveyard # X
                     - cemetery
-                    - golf_course # X
-                    - miniature_golf # X
-                    - sports_centre # X
-                    - recreation_ground # X
                     - pitch
-                    - track # X
-                    - playground # X
-                    - garden # X
-                    - allotments # X
-                    - petting_zoo # X
-                    - zoo # X
-                    - wildlife_park # X
-                    - maze # X
-                    - resort # X
             draw:
                 polygons:
                     color: global.green_color
@@ -149,14 +99,7 @@ layers:
             filter:
                 class:
                     - scrub
-                    - orchard # X
-                    - plant_nursery # X
-                    - vineyard # X
-                    - forest # X
                     - wood
-                    - natural_wood # X
-                    - natural_forest # X
-                    - natural_park # X
             draw:
                 polygons:
                     order: 1
