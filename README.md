@@ -15,10 +15,10 @@ It is designed to not visually distract the user from the quests that are displa
 
 Every vector map tiles hoster has his own schema, so every map style is per se only compatible with the schema it was created for. The style was originally created for are for the [mapzen/nextzen](https://www.nextzen.org/) schema. However, it has been adapted to work (with some reservations) with other vector tile schemes as well. It is available for:
 
-- [nextzen](https://www.nextzen.org/) on the `[master](https://github.com/ENT8R/streetcomplete-mapstyle/tree/master)` branch 
-- [openmaptiles](https://openmaptiles.org/schema/) on branch `[openmaptiles](https://github.com/ENT8R/streetcomplete-mapstyle/tree/openmaptiles)`
-- [jawg.io](https://www.jawg.io/en/maps) on branch `[jawg](https://github.com/ENT8R/streetcomplete-mapstyle/tree/jawg)`
-
+- [nextzen](https://www.nextzen.org/) on the [`master`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/master) branch 
+- [openmaptiles](https://openmaptiles.org/schema/) on branch [`openmaptiles`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/openmaptiles)
+- [jawg.io](https://www.jawg.io/en/maps) on branch [`jawg`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/jawg)
+- [thunderforest outdoors](https://www.thunderforest.com/docs/thunderforest.outdoors-v2/) on branch [`thunderforest`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/thunderforest)
 
 ## Contributing
 
