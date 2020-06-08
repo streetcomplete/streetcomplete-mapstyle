@@ -37,9 +37,9 @@ layers:
         data: { source: jawg, layer: place_label }
         draw:
             text:
-                visible: false
                 text_source: global.name_source
                 buffer: 4px
+                priority: function() { return 10 + feature.scalerank }
                 font:
                     family: global.text_font_family
                     fill: global.text_fill_color
@@ -50,29 +50,8 @@ layers:
             filter: { type: city, $zoom: { min: 6 } }
             draw:
                 text:
-                    visible: true
-                    priority: function() { return 10 + feature.scalerank }
-
-        town-and-suburb:
-            filter: { type: [town, suburb], $zoom: { min: 9 } }
-            draw:
-                text:
-                    visible: true
-                    priority: 21
-
-        village-and-neighbourhood:
-            filter: { type: [village, neighbourhood], $zoom: { min: 11 } }
-            draw:
-                text:
-                    visible: true
-                    priority: 22
-
-        other:
-            filter: { type: [hamlet, isolated_dwelling], $zoom: { min: 13 } }
-            draw:
-                text:
-                    visible: true
-                    priority: 23
+                    font:
+                        weight: bold
 
     housenumber-labels:
         data: { source: jawg, layer: housenum_label }
@@ -86,8 +65,6 @@ layers:
                     fill: global.text_fill_color
                     size: global.text_size
                     stroke: global.text_stroke
-
-    # jawg: no name_en labels exist
 
 global:
     name_source: |

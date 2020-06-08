@@ -84,8 +84,14 @@ layers:
                 lines:
                     color: global.path_color
                     width: [[14, 0.5px], [15, 1px], [19, 2m]]
-
-        # jawg: apparently no steps
+            steps:
+                filter: { type: steps }
+                draw:
+                    step_dashes:
+                        order: 31
+                        cap: butt
+                        color: global.path_color
+                        width: [[14, 0.5px], [15, 1px], [19, 2m]]
 
         road-outline:
             filter: { $zoom: { min: 15 } }
@@ -112,7 +118,7 @@ layers:
                         width: function () { return 1/4 * Math.log($zoom); }
                         order: 31
 
-        # jawg: no property for private roads?
+        # jawg: no property for private roads
 
         oneway:
             filter: { not: { oneway: 0 }, $zoom: { min: 17 } }
