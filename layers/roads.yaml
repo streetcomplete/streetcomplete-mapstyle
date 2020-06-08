@@ -55,6 +55,7 @@ layers:
                 width: 80m
 
     roads:
+        # nextzen: not possible to exclude indoor paths
         data: { source: mapzen }
         filter:
             not:
