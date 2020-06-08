@@ -38,9 +38,9 @@ layers:
         filter: { not: { class: [continent, country] }}
         draw:
             text:
-                visible: false
                 text_source: global.name_source
                 buffer: 4px
+                priority: function() { return 6 + feature.rank }
                 font:
                     family: global.text_font_family
                     fill: global.text_fill_color
@@ -51,34 +51,11 @@ layers:
             filter: { class: city, $zoom: { min: 6 } }
             draw:
                 text:
-                    visible: true
-                    # rank 6 is the lowest rank of a country
-                    priority: function() { return 6 + feature.rank }
-
-        town-and-suburb:
-            filter: { class: [town, suburb], $zoom: { min: 9 } }
-            draw:
-                text:
-                    visible: true
-                    # 10 + 6 is the lowest rank of a city
-                    priority: 17
-
-        village-and-neighbourhood:
-            filter: { class: [village, neighbourhood], $zoom: { min: 11 } }
-            draw:
-                text:
-                    visible: true
-                    priority: 18
-
-        other:
-            filter: { class: [hamlet, isolated_dwelling], $zoom: { min: 13 } }
-            draw:
-                text:
-                    visible: true
-                    priority: 19
+                    font:
+                        weight: bold
 
     housenumber-labels:
-        # openmaptiles: apparently this information is missing
+        # stadiamaps: this information is missing
         data: { source: openmaptiles, layer: housenumber }
         filter: { $zoom: { min: 19 } }
         draw:
@@ -95,5 +72,5 @@ global:
     name_source: |
         function() {
             // Use preferred language label if available
-            return (global.language && feature['name_'+global.language]) || feature.name;
+            return (global.language && (feature['name_'+global.language] || feature['name:'+global.language]) ) || feature.name;
         }
