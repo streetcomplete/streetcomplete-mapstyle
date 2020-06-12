@@ -1,4 +1,5 @@
 global:
+    api_key: false # intended to be overwritten by StreetComplete
     language: false # intended to be overwritten by StreetComplete
     text_font_family: 'Roboto'
     text_stroke_color: 'white'
@@ -84,7 +85,7 @@ sources:
         url: https://tiles.stadiamaps.com/data/openmaptiles/{z}/{x}/{y}.pbf
         max_zoom: 14
         url_params:
-            api_key: 
+            api_key: global.api_key
 
 textures:
     oneway-arrow:
