@@ -144,10 +144,29 @@ layers:
                     color: global.square_color
                     order: 31
 
-    # jawg: layer hillshade exists (w/ highlight=1-2, shadow=1-4)
+    hillshade:
+        data: { source: jawg , layer: hillshade }
+        highlights:
+            filter: { highlight: true }
+            draw:
+                hillshade-light-style:
+                    order: 100
+                    color: '#040404'
+        shadows:
+            filter: { shadow: true }
+            draw:
+                hillshade-shadow-style:
+                    order: 100
+                    color: '#f9f9f9'
 
 
 styles:
+    hillshade-light-style:
+        base: polygons
+        blend: add
+    hillshade-shadow-style:
+        base: polygons
+        blend: multiply
     boundary_dashes:
         base: lines
         dash: [1, 2]
