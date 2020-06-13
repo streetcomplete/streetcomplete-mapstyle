@@ -8,12 +8,7 @@ layers:
                 color: global.railway_color
                 join: round
                 width: [[10, 0.5px], [12, 1.0px], [13, 2px], [18, 3m]]
-        # jawg: apparently no filtering between service rail and other possible
-        service:
-            filter: { service: 1 }
-            draw:
-                lines-railway-style:
-                    width: [[10, 0.2px], [12, 0.5px], [13, 1px], [18, 1.5m]]
+        # jawg: no filtering between service rail and other possible
 
     highway:
         data: { source: jawg, layer: road }
