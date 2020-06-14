@@ -47,6 +47,19 @@ layers:
                     stroke: global.text_stroke
                     weight: normal
 
+    water-labels:
+        data: { source: thunderforest, layer: [waterway-label, water-label] }
+        draw:
+            text:
+                text_source: global.name_source
+                buffer: 12px
+                priority: function() { return feature.labelrank }
+                font:
+                    family: global.text_font_family
+                    fill: global.text_water_color
+                    size: global.text_size
+                    stroke: global.text_water_stroke
+
     country-labels:
         data: { source: thunderforest, layer: country-label }
         draw:
@@ -62,7 +75,7 @@ layers:
                     transform: uppercase
                     weight: bold
 
-    # thunderforest: there is also layer state-label, waterway-label, landcover-label, water-label, landuse-label
+    # thunderforest: there is also layer state-label, landcover-label, landuse-label
 
     place-labels:
         data: { source: thunderforest, layer: place-label }
