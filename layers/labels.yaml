@@ -17,6 +17,19 @@ layers:
                     stroke: global.text_stroke
                     weight: normal
 
+    water-labels:
+        data: { source: openmaptiles, layer: [water_name, waterway] }
+        draw:
+            text:
+                text_source: global.name_source
+                buffer: 12px
+                priority: function() { return feature.rank }
+                font:
+                    family: global.text_font_family
+                    fill: global.text_water_color
+                    size: global.text_size
+                    stroke: global.text_water_stroke
+
     country-labels:
         data: { source: openmaptiles, layer: place }
         filter: { class: country }
