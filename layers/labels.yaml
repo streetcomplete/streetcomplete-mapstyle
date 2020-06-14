@@ -6,6 +6,7 @@ layers:
             text:
                 text_source: global.name_source
                 buffer: 8px
+                priority: 3
                 text_wrap: 25
                 max_lines: 3
                 font:
@@ -15,6 +16,19 @@ layers:
                     stroke: global.text_stroke
                     weight: normal
 
+    water-labels:
+        data: { source: mapzen, layer: [water] }
+        draw:
+            text:
+                text_source: global.name_source
+                buffer: 12px
+                priority: 4
+                font:
+                    family: global.text_font_family
+                    fill: global.text_water_color
+                    size: global.text_size
+                    stroke: global.text_water_stroke
+
     country-labels:
         data: { source: mapzen, layer: places }
         filter: {name: true, kind: country, not: {source: [whosonfirst.org]}}
@@ -22,6 +36,7 @@ layers:
             text:
                 text_source: global.name_source
                 buffer: 12px
+                priority: 1
                 font:
                     family: global.text_font_family
                     fill: global.text_fill_color
@@ -37,6 +52,7 @@ layers:
             text:
                 text_source: global.name_source
                 buffer: 12px
+                priority: 2
                 font:
                     family: global.text_font_family
                     fill: global.text_fill_color
