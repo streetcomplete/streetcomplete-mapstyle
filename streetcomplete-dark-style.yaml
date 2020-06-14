@@ -15,6 +15,7 @@ import:
 global:
     text_stroke_color: '#2e2e48'
     text_fill_color: '#ccf'
+    text_water_color: '#ccf'
 
     railway_color: '#903'
     road_color: '#559'
