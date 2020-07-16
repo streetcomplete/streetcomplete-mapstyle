@@ -16,7 +16,7 @@ layers:
         bridges:
             filter: { bridge: yes }
             draw:
-                lines:
+                lines-railway-style:
                     order: 42
 
     highway:
@@ -28,7 +28,7 @@ layers:
                 join: round
                 cap: round
                 color: global.highway_color
-                width: [[8, 1px], [14, 5px], [15, 30m]]
+                width: [[8, 1px], [14, 5px], [15, 20m]]
                 outline:
                     color: global.highway_outline_color
                     width: function () { return 1/4 * Math.log($zoom); }
