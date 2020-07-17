@@ -15,14 +15,14 @@ It is designed to not visually distract the user from the quests that are displa
 
 Every vector map tiles hoster has his own schema, so every map style is per se only compatible with the schema it was created for. The style was originally created for are for the [mapzen/nextzen](https://www.nextzen.org/) schema. However, it has been adapted to work (with some reservations) with other vector tile schemes as well. It is available for:
 
-- [nextzen](https://www.nextzen.org/) on the [`master`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/master) branch 
+- [nextzen](https://www.nextzen.org/) on the [`nextzen`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/nextzen) branch
 - [openmaptiles](https://openmaptiles.org/schema/) on branch [`openmaptiles`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/openmaptiles)
 - [jawg.io](https://www.jawg.io/en/maps) on branch [`jawg`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/jawg)
 - [thunderforest outdoors](https://www.thunderforest.com/docs/thunderforest.outdoors-v2/) on branch [`thunderforest`](https://github.com/ENT8R/streetcomplete-mapstyle/tree/thunderforest)
 
 ## Contributing
 
-* Open the code in Tangram Play ([Normal map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/streetcomplete-light-style.yaml),  [Satellite map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/streetcomplete-satellite-style.yaml), [Dark map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/streetcomplete-dark-style.yaml))
+* Open the code in Tangram Play ([Normal map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/jawg/streetcomplete-light-style.yaml),  [Satellite map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/jawg/streetcomplete-satellite-style.yaml), [Dark map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/jawg/streetcomplete-dark-style.yaml))
 * Change or add something to the style
 * Download the file after you did your work
 * Make a pull request to this repository
