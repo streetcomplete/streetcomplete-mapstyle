@@ -4,36 +4,48 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>StreetComplete MapStyle</title>
+    <title>streetcomplete-mapstyle</title>
 
     <link rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-          integrity="sha384-eS4bw6aEvhCSXWGP85ANR/N8isWKzT7P36NvcuTJGkrj6wsbxLVpXslrNXYHyseD"
+          href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha384-VzLXTJGPSyTLX6d96AxgkKvE/LRb7ECGyTxuwtpjHnVWVZs2gp5RDjeM/tgBnVdM"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+          integrity="sha384-t43sqlKjld3srz0JeiS5tJpz/8D4vZyJJSUao2rtlsndkhOhgDVrUajGr87rcVFA"
           crossorigin="anonymous">
 
     <link rel="stylesheet" href="main.css">
   </head>
 
   <body>
-    <div id="map"></div>
-    <div id="layer-selection">
-      <button data-layer="light" class="active">Light</button>
-      <button data-layer="dark">Dark</button>
-      <button data-layer="satellite">Satellite</button>
+    <div id="maps">
+      <div id="jawg"></div>
+      <div id="nextzen"></div>
+      <div id="openmaptiles"></div>
+      <div id="thunderforest"></div>
     </div>
   </body>
 
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-          integrity="sha384-wKOriz2x8/bF1D9t6PuKhSpxfhHeVi9huvyuxJrrShSJpi5+rmRIsM90UuWbdAYJ"
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+          integrity="sha384-RFZC58YeKApoNsIbBxf4z6JJXmh+geBSgkCQXFyh+4tiFSJmJBt+2FbjxW7Ar16M"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet.sync@0.2.4/L.Map.Sync.js"
+          integrity="sha384-E5a2NGhHSLdAoNMALv/o56IoEX7hZ/o7i9ktwz4McY+XCzfxW5oSExbCgRRYuTFL"
+          crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/dat.gui@0.7.7/build/dat.gui.min.js"
+          integrity="sha384-bXBR7wGBv71dkw7jwxbXO7wf4BrHzvRw0k9Mjn2jiYDYAhha8LYez1xkYTtHeLc4"
           crossorigin="anonymous"></script>
 
   <script type="module"
-          src="https://unpkg.com/tangram@0.20.1/dist/tangram.min.mjs"
-          integrity="sha384-ffAeim42HAYMCbZbtmpmOeNWHfUWOEjg1A+dJw23uxK1Dw+8Cz4DhSc0ngwi5fn2"
+          src="https://unpkg.com/tangram@0.21.0/dist/tangram.min.mjs"
+          integrity="sha384-YPbVDKPN+7kMnz/yi/AgKgol+4LhjW2A44aYbkWvJ5CFQDJ+i2gXF5NJL16SnUq/"
           crossorigin="anonymous"></script>
   <script nomodule
-          src="https://unpkg.com/tangram@0.20.1/dist/tangram.min.js"
-          integrity="sha384-bIF3WkVHt2OdunlZyDiig98k5PbIrTkLS13St6G3cXPvC/pR3/VCV2OK0ZdcLhYi"
+          src="https://unpkg.com/tangram@0.21.0/dist/tangram.min.js"
+          integrity="sha384-vIaoSzhgq727zwTttvoYekkfwMA6BmtrveIIBy6UKfyt1Ci5j2xgKvOJtRmPon4a"
           crossorigin="anonymous"></script>
 
   <script defer src="main.js"></script>
