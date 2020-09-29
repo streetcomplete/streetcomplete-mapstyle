@@ -9,25 +9,9 @@ layers:
                 color: global.boundary_color
                 width: 1px
 
-    waterareas:
-        data: { source: jawg , layer: waterarea }
-        filter: { not: { tunnel: 1 }}
-        draw:
-            polygons:
-                order: 4
-                color: global.water_color
-
-        shore_lines:
-            filter: { $zoom: { min: 16 } }
-            draw:
-                lines-coast:
-                    order: 5
-                    width: [[16,20px],[18,10m]] # actually visually 1/3
-                    color: global.water_color
-
     water:
-        data: { source: jawg }
-        filter: { not: { tunnel: 1 }}
+        data: { source: jawg, layer: water }
+        filter: { not: { structure: tunnel }}
         draw:
             polygons:
                 order: 4
@@ -43,7 +27,7 @@ layers:
 
     waterways:
         data: { source: jawg, layer: waterway }
-        filter: { not: { tunnel: 1 }}
+        filter: { not: { structure: tunnel }}
         draw:
             lines:
                 order: 5
@@ -80,7 +64,8 @@ layers:
                 extrude: true
 
     landuse:
-        data: { source: jawg }
+        data: { source: jawg, layer: landuse }
+        filter: { not: { class: national_park }}
         draw:
             polygons:
                 order: 1
@@ -107,10 +92,10 @@ layers:
                     color: global.forest_color
 
     barriers:
-        data: { source: jawg , layer: barrier_line }
+        data: { source: jawg , layer: structure }
         city_walls:
             # jawg: doesn't work, city walls are transformed into fences
-            filter: { class: [city_wall, dam] }
+            filter: { class: [city_wall, dam, cliff] }
             draw:
                 buildings-outline-style:
                     order: 100

@@ -1,7 +1,7 @@
 layers:
     railway:
         data: { source: jawg, layer: road }
-        filter: { class: [major_rail, minor_rail], not: { tunnel: 1 }}
+        filter: { class: [major_rail, minor_rail], not: { structure: tunnel }}
         draw:
             lines-railway-style:
                 order: 32
@@ -10,7 +10,7 @@ layers:
                 width: [[10, 0.5px], [12, 1.0px], [13, 2px], [18, 3m]]
         # jawg: no filtering between service rail and other possible
         bridges:
-            filter: { bridge: 1 }
+            filter: { structure: bridge }
             draw:
                 lines-railway-style:
                     order: 42
@@ -31,7 +31,7 @@ layers:
                     order: 35
 
         bridges:
-            filter: { bridge: 1 }
+            filter: { structure: bridge }
             draw:
                 lines:
                     order: 44
@@ -39,7 +39,7 @@ layers:
                         cap: butt
                         order: 45
         tunnel:
-            filter: { tunnel: 1 }
+            filter: { structure: tunnel }
             draw:
                 lines-highway-style:
                     order: 22
@@ -120,7 +120,12 @@ layers:
                         width: function () { return 1/4 * Math.log($zoom); }
                         order: 31
 
-        # jawg: no property for private roads
+        private:
+            filter: { access: [no, private, destination, customers, delivery, agricultural, forestry, emergency] }
+            draw:
+                lines:
+                    outline:
+                        style: private-way
 
         oneway:
             filter: { not: { oneway: 0 }, $zoom: { min: 17 } }
@@ -137,7 +142,7 @@ layers:
                         visible: false
 
         bridges:
-            filter: { bridge: 1 }
+            filter: { structure: bridge }
             draw:
                 lines:
                     order: 40
@@ -146,7 +151,7 @@ layers:
                         order: 41
 
         tunnel:
-            filter: { tunnel: 1 }
+            filter: { structure: tunnel }
             draw:
                 lines:
                     order: 20
