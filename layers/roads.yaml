@@ -160,26 +160,18 @@ layers:
                     outline:
                         order: 21
 
-    pois:
+    point_barriers:
         # jawg: these do not exist
-        data: { source: jawg , layer: poi }
+        data: { source: jawg , layer: structure }
         barrier:
-            filter: { type: [gate, bollard, lift_gate, cycle_barrier, stile, block, toll_booth, kissing_gate, swing_gate, chain, cattle_grid, border_control], $zoom: { min: 17 }}
+            filter: { class: gate, $zoom: { min: 17 }}
             draw:
                 points:
                     buffer: 2px
                     flat: true
                     color: global.barrier_color
                     size: [[17, 2px], [20, 16px]]
-        roundabout:
-            # jawg these do not seem to exist
-            filter: { type: [mini_roundabout, turning_loop, turning_circle] }
-            draw:
-                points:
-                    buffer: 2px
-                    flat: true
-                    color: global.roundabout_color
-                    size: [[16, 2px], [20, 24px]]
+         # jawg mini_roundabout, turning_loop, turning_circle do not exist
 
 styles:
     step_dashes:
