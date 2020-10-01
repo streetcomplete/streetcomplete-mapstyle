@@ -35,14 +35,14 @@ layers:
                 cap: square
 
         river_lines:
-            filter: { class: [river, canal, river_intermittent] }
+            filter: { class: [river, canal] }
             draw:
                 lines:
                     color: global.water_color
                     width: [[10, 1px], [17, 6px], [18, 12m]]
 
         stream_lines:
-            filter: { class: [stream, stream_intermittent, ditch, drain], $zoom: { min: 15 }}
+            filter: { class: [stream, ditch, drain], $zoom: { min: 15 }}
             draw:
                 lines:
                     color: global.water_color
