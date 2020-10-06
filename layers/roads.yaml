@@ -128,7 +128,7 @@ layers:
                         style: private-way
 
         oneway:
-            filter: { not: { oneway: 0 }, $zoom: { min: 17 } }
+            filter: { not: { oneway: false }, $zoom: { min: 17 } }
             draw:
                 oneway-arrow:
                     flat: true
