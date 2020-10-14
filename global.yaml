@@ -138,8 +138,7 @@ lights:
 sources:
     jawg:
         type: MVT
-        url: https://{s}.tile.jawg.io/streets-v1+hillshade-v1/{z}/{x}/{y}.pbf
-        url_subdomains: [a, b, c]
+        url: https://tile.jawg.io/streets-v2/{z}/{x}/{y}.pbf
         max_zoom: 16
         url_params:
             access-token: global.api_key
