@@ -194,6 +194,7 @@ styles:
     private-way:
         base: lines
         dash: [1.0,0.5]
+        blend: translucent
     tunnel-way:
         base: lines
         blend: translucent
