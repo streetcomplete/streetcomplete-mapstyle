@@ -187,6 +187,7 @@ styles:
     private-way:
         base: lines
         dash: [1.0,0.5]
+        blend: translucent
     oneway-arrow:
         base: points
         texture: oneway-arrow
