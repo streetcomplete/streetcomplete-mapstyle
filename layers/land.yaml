@@ -2,7 +2,7 @@ layers:
 
     boundaries:
         data: { source: jawg, layer: admin }
-        filter: { admin_level: 2, not: { maritime: true }}
+        filter: { admin_level: 2, not: { maritime: [true] }}
         draw:
             boundary_dashes:
                 order: 80
