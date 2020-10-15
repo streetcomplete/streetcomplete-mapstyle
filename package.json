@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "npx webpack-dev-server",
+    "build": "npx webpack"
+  },
+  "dependencies": {
+    "codemirror": "^5.58.1",
+    "dat.gui": "^0.7.7",
+    "leaflet": "^1.7.1",
+    "leaflet.sync": "^0.2.4",
+    "lodash": "^4.17.20",
+    "tangram": "^0.21.0",
+    "yaml": "^2.0.0-1"
+  },
+  "devDependencies": {
+    "webpack": "^5.1.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

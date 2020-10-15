@@ -1,0 +1,62 @@
+html, body, #maps, .map {
+  height: 100%;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
+#maps > * {
+  float: left;
+}
+
+#maps[data-view="single"] > :first-child {
+  height: 100%;
+  width: 100%;
+}
+#maps[data-view="single"] > :not(:first-child) {
+  height: 0%;
+}
+
+#maps[data-view="multi"] > * {
+  height: 50%;
+  width: 50%;
+  position: relative;
+}
+
+.debug-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.debug-row > * {
+  padding: 2px 4px;
+}
+
+.CodeMirror {
+  display: none;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.9;
+  font-size: 16px;
+  z-index: 1000;
+}
+
+.icon-button {
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 2px;
+  height: 24px;
+  width: 24px;
+}
+.icon-button.edit-icon {
+  background: url("https://cdn.jsdelivr.net/npm/@mdi/svg/svg/pencil.svg") no-repeat center, white;
+}
+.icon-button.close-icon {
+  background: url("https://cdn.jsdelivr.net/npm/@mdi/svg/svg/close.svg") no-repeat center, white;
+  position: absolute;
+  top: 12px;
+  z-index: 1000;
+  right: 24px;
+}

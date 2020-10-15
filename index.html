@@ -12,19 +12,36 @@
           crossorigin="anonymous">
 
     <link rel="stylesheet"
+          href="https://unpkg.com/codemirror@5.58.1/lib/codemirror.css"
+          integrity="sha384-KsbK45E17r4hdzdJB8hf/poBTYi0oDktKdCAyP67Uc9lE9Amf83NF+Vf6VJZ6mRK"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://unpkg.com/codemirror@5.58.1/theme/material.css"
+        integrity="sha384-wNa2J0ZpPuJd3IJ0weulKqyfUNeyLt3d0IfkrexmFJH96WvXfuxZKzTRys27GH9J"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
           integrity="sha384-t43sqlKjld3srz0JeiS5tJpz/8D4vZyJJSUao2rtlsndkhOhgDVrUajGr87rcVFA"
           crossorigin="anonymous">
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
 
   <body>
     <div id="maps">
-      <div id="jawg"></div>
-      <div id="nextzen"></div>
-      <div id="openmaptiles"></div>
-      <div id="thunderforest"></div>
+      <div id="jawg-container">
+        <div id="jawg" class="map"></div>
+      </div>
+      <div id="nextzen-container">
+        <div id="nextzen" class="map"></div>
+      </div>
+      <div id="openmaptiles-container">
+        <div id="openmaptiles" class="map"></div>
+      </div>
+      <div id="thunderforest-container">
+        <div id="thunderforest" class="map"></div>
+      </div>
     </div>
   </body>
 
@@ -33,10 +50,6 @@
           crossorigin="anonymous"></script>
   <script src="https://unpkg.com/leaflet.sync@0.2.4/L.Map.Sync.js"
           integrity="sha384-E5a2NGhHSLdAoNMALv/o56IoEX7hZ/o7i9ktwz4McY+XCzfxW5oSExbCgRRYuTFL"
-          crossorigin="anonymous"></script>
-
-  <script src="https://unpkg.com/dat.gui@0.7.7/build/dat.gui.min.js"
-          integrity="sha384-bXBR7wGBv71dkw7jwxbXO7wf4BrHzvRw0k9Mjn2jiYDYAhha8LYez1xkYTtHeLc4"
           crossorigin="anonymous"></script>
 
   <script type="module"
@@ -48,5 +61,5 @@
           integrity="sha384-vIaoSzhgq727zwTttvoYekkfwMA6BmtrveIIBy6UKfyt1Ci5j2xgKvOJtRmPon4a"
           crossorigin="anonymous"></script>
 
-  <script defer src="main.js"></script>
+  <script defer src="dist/main.min.js"></script>
 </html>
