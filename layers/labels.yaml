@@ -49,6 +49,7 @@ layers:
 
     water-labels:
         data: { source: thunderforest, layer: [waterway-label, water-label] }
+        filter: { not: { tunnel: yes } }
         draw:
             text:
                 text_source: global.name_source
