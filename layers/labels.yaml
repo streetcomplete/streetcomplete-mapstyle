@@ -19,6 +19,7 @@ layers:
 
     water-labels:
         data: { source: openmaptiles, layer: [water_name, waterway] }
+        filter: { not: { brunnel: tunnel } }
         draw:
             text:
                 text_source: global.name_source
