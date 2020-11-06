@@ -18,6 +18,7 @@ layers:
 
     water-labels:
         data: { source: mapzen, layer: [water] }
+        filter: { not: { is_tunnel: true } }
         draw:
             text:
                 text_source: global.name_source
