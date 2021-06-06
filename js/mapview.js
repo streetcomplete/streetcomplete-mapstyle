@@ -1,8 +1,8 @@
-const CodeMirror = require('codemirror');
-require('codemirror/mode/yaml/yaml');
-const { debounce } = require('lodash');
+import CodeMirror from 'codemirror';
+import 'codemirror/mode/yaml/yaml.js';
+import { debounce } from 'lodash';
 
-const RawLayer = require('./raw.js');
+import RawLayer from './raw.js';
 
 const CONFIG = {
   ATTRIBUTION: '<a href="https://geocode.earth" target="_blank" rel="noopener">Geocode.earth</a> | <a href="https://mapzen.com/tangram" target="_blank" rel="noopener">Tangram</a> | &copy; <a href="https://www.osm.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>',
@@ -27,7 +27,7 @@ const CONFIG = {
   }
 }
 
-class MapView {
+export default class MapView {
   constructor(provider, options) {
     this.provider = provider;
     this.options = options;
@@ -153,5 +153,3 @@ L.Control.Edit = L.Control.extend({
     return edit;
   }
 });
-
-module.exports = MapView;

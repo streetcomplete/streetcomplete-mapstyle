@@ -1,13 +1,11 @@
-module.exports = {
+export default {
   mode: 'production',
-  watch: true,
   entry: './js/main.js',
   output: {
     filename: '[name].min.js',
     publicPath: 'dist/'
   },
   devServer: {
-    contentBase: __dirname,
     watchContentBase: true,
     publicPath: '/dist/',
     compress: true,

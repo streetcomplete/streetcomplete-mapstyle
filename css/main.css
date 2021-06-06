@@ -9,18 +9,35 @@ html, body, #maps, .map {
   float: left;
 }
 
-#maps[data-view="single"] > :first-child {
+#maps[data-view="single"] > * {
   height: 100%;
   width: 100%;
-}
-#maps[data-view="single"] > :not(:first-child) {
-  height: 0%;
 }
 
 #maps[data-view="multi"] > * {
   height: 50%;
   width: 50%;
   position: relative;
+}
+
+#maps[data-view="single"]:not([data-provider="jawg"]):not([data-provider="nextzen"]):not([data-provider="openmaptiles"]):not([data-provider="thunderforest"]) > * {
+  display: none;
+}
+
+#maps[data-view="single"][data-provider="jawg"] > :not(:nth-child(1)) {
+  display: none;
+}
+
+#maps[data-view="single"][data-provider="nextzen"] > :not(:nth-child(2)) {
+  display: none;
+}
+
+#maps[data-view="single"][data-provider="openmaptiles"] > :not(:nth-child(3)) {
+  display: none;
+}
+
+#maps[data-view="single"][data-provider="thunderforest"] > :not(:nth-child(4)) {
+  display: none;
 }
 
 .debug-row {

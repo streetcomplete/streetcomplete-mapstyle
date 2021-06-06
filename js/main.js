@@ -1,6 +1,7 @@
-const MapView = require('./mapview.js');
+import MapView from './mapview.js';
 
 const SETTINGS = {
+  provider: 'jawg',
   style: 'light',
   opacity: 1,
   compare: false,
@@ -60,17 +61,16 @@ async function styles() {
 
   for (let i = 0; i < MAPS.length; i++) {
     const view = MAPS[i];
-    const editor = view.editor;
+    const { editor, provider } = view;
+    const style = SETTINGS.style;
 
     // Only load necessary styles and clear the content of the editor if the style is not in use
-    if (!SETTINGS.compare && i >= 1) {
+    if (SETTINGS.compare !== true && provider !== SETTINGS.provider) {
       editor.getDoc().setValue('');
       editor.getDoc().clearHistory();
       continue;
     }
 
-    const provider = view.provider;
-    const style = SETTINGS.style;
     const url = `https://cdn.jsdelivr.net/gh/ENT8R/streetcomplete-mapstyle@${provider}/streetcomplete-${style}-style.yaml`;
     const content = await fetch(url).then(response => response.text());
     editor.getDoc().setValue(content);
@@ -81,8 +81,13 @@ async function styles() {
 }
 
 function raw() {
-  for (let i = 0; i < (SETTINGS.compare ? MAPS.length : 1); i++) {
+  for (let i = 0; i < MAPS.length; i++) {
     const view = MAPS[i];
+
+    if (SETTINGS.compare !== true && view.provider !== SETTINGS.provider) {
+      continue;
+    }
+
     if (SETTINGS.raw === true) {
       view.map.addLayer(view.layers.raw);
     } else {
@@ -94,6 +99,8 @@ function raw() {
 // Update the map views to either show a single map or all at once
 function view() {
   document.getElementById('maps').dataset.view = SETTINGS.compare ? 'multi' : 'single';
+  document.getElementById('maps').dataset.provider = SETTINGS.provider;
+
   MAPS.forEach(view => {
     view.map.invalidateSize();
   });
@@ -110,6 +117,10 @@ function sync() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const parameters = new URLSearchParams(window.location.search);
+  SETTINGS.provider = parameters.has('provider') ? parameters.get('provider') : SETTINGS.provider;
+  SETTINGS.style = parameters.has('style') ? parameters.get('style') : SETTINGS.style
+
   sync();
   styles();
 });

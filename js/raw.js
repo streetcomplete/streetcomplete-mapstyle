@@ -1,7 +1,7 @@
-const { VectorTile, VectorTileFeature } = require('@mapbox/vector-tile');
-const Protobuf = require('pbf');
+import { VectorTile, VectorTileFeature } from '@mapbox/vector-tile';
+import Protobuf from 'pbf';
 
-const RawLayer = L.GridLayer.extend({
+export default L.GridLayer.extend({
   initialize: function(options) {
     L.GridLayer.prototype.initialize.call(this, options);
     Object.assign(this.options, options);
@@ -107,5 +107,3 @@ const RawLayer = L.GridLayer.extend({
     }
   }
 });
-
-module.exports = RawLayer;
