@@ -1,15 +1,21 @@
 # for online testing (e.g. Tangram Play)
 import:
-    - https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/global.yaml
-    - https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/master/layers/labels.yaml
+    - https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/openmaptiles/global.yaml
+    - https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/openmaptiles/layers/labels.yaml
+    - https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/openmaptiles/layers/roads.yaml
 
 # for local testing (e.g. using an emulator)
 #import:
 #    - global.yaml
 #    - layers/labels.yaml
+#    - layers/roads.yaml
+
+global:
+    railway_color: rgba(153, 153, 170, .5)
+    road_color: rgba(255, 255, 255, .2)
+    highway_color: rgba(255, 170, 136, .2)
 
 # layer docs: https://raw.githubusercontent.com/osmlab/editor-layer-index/74501812b31cca1c3505d7e942c5188c63adf5b2/sources/world/EsriImagery.geojson
-
 sources:
     raster:
         type: Raster
@@ -20,3 +26,14 @@ layers:
         draw:
             raster:
                 order: 0
+
+styles:
+    lines-highway-style:
+        base: lines
+        blend: translucent
+    lines-road-style:
+        base: lines
+        blend: translucent
+    lines-railway-style:
+        base: lines
+        blend: translucent
