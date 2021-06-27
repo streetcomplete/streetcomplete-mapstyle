@@ -24,7 +24,7 @@ Every vector map tiles hoster has his own schema, so every map style is per se o
 
 * Open the code in an editor
   * StreetComplete Map Style Editor
-   (recommended; [Normal map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=jawg&style=light),  [Satellite map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=jawg&style=satellite), [Dark map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/jawg/streetcomplete-dark-style.yaml))  
+   (recommended; [Normal map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=jawg&style=light), [Satellite map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=jawg&style=satellite), [Dark map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=jawg&style=dark))  
    Already includes a jawg.io API key
   * Tangram Play ([Normal map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/jawg/streetcomplete-light-style.yaml),  [Satellite map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/jawg/streetcomplete-satellite-style.yaml), [Dark map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/jawg/streetcomplete-dark-style.yaml))  
     When using jawg.io, add your API key to the field `api_key` in the `global` section
