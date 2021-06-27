@@ -34,7 +34,7 @@ Every vector map tiles hoster has his own schema, so every map style is per se o
 
 ## Useful links
 
-* [View map & edit map style](https://streetcomplete.github.io/streetcomplete-mapstyle)
+* [View map & edit map style](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=jawg)
 * [Tangram documentation](https://mapzen.com/documentation/tangram/)
 * [Tangram Play](https://tangram.city/play/)
 * [Issue #183 of StreetComplete](https://github.com/westnordost/StreetComplete/issues/183) (The reason why this repository was created)
