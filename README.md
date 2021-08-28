@@ -23,9 +23,8 @@ Every vector map tiles hoster has his own schema, so every map style is per se o
 ## Contributing
 
 * Open the code in an editor
-  * StreetComplete Map Style Editor
-   (recommended; [Normal map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=nextzen&style=light), [Satellite map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=nextzen&style=satellite), [Dark map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=nextzen&style=dark))
-   * Already includes a Nextzen API key
+  * StreetComplete Map Style Editor (recommended; [Normal map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=nextzen&style=light), [Satellite map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=nextzen&style=satellite), [Dark map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=nextzen&style=dark))
+    * Already includes a Nextzen API key
   * Tangram Play ([Normal map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/nextzen/streetcomplete-light-style.yaml),  [Satellite map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/nextzen/streetcomplete-satellite-style.yaml), [Dark map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/nextzen/streetcomplete-dark-style.yaml))
     * You have to add your Nextzen API key to the field `api_key` in the `global` section
 * Change or add something to the style
