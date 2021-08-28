@@ -22,14 +22,18 @@ Every vector map tiles hoster has his own schema, so every map style is per se o
 
 ## Contributing
 
-* Open the code in Tangram Play ([Normal map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/jawg/streetcomplete-light-style.yaml),  [Satellite map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/jawg/streetcomplete-satellite-style.yaml), [Dark map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/jawg/streetcomplete-dark-style.yaml))
+* Open the code in an editor
+  * StreetComplete Map Style Editor (recommended; [Normal map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=openmaptiles&style=light), [Satellite map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=openmaptiles&style=satellite), [Dark map](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=openmaptiles&style=dark))
+    * Already includes a Stadia Maps API key
+  * Tangram Play ([Normal map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/openmaptiles/streetcomplete-light-style.yaml),  [Satellite map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/openmaptiles/streetcomplete-satellite-style.yaml), [Dark map](https://tangram.city/play/?scene=https://raw.githubusercontent.com/ENT8R/streetcomplete-mapstyle/openmaptiles/streetcomplete-dark-style.yaml))
+    * You have to add your Stadia Maps API key to the field `api_key` in the `global` section
 * Change or add something to the style
 * Download the file after you did your work
 * Make a pull request to this repository
 
 ## Useful links
 
+* [View map & edit map style](https://streetcomplete.github.io/streetcomplete-mapstyle/?provider=openmaptiles)
 * [Tangram documentation](https://mapzen.com/documentation/tangram/)
 * [Tangram Play](https://tangram.city/play/)
-* [View map](https://ent8r.github.io/streetcomplete-mapstyle)
 * [Issue #183 of StreetComplete](https://github.com/westnordost/StreetComplete/issues/183) (The reason why this repository was created)
