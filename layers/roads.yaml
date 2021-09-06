@@ -22,7 +22,7 @@ layers:
 
     highway:
         data: { source: openmaptiles, layer: transportation }
-        filter: { class: [motorway, trunk], ramp: 0 }
+        filter: { class: [motorway, trunk] }
         draw:
             lines-highway-style:
                 order: 34
@@ -34,6 +34,12 @@ layers:
                     color: global.highway_outline_color
                     width: function () { return 1/4 * Math.log($zoom); }
                     order: 35
+
+        link:
+            filter: { ramp: 1 }
+            draw:
+                lines-highway-style:
+                     width: [[9, 1px], [14, 2px], [16, 6px], [19, 12m]]
 
         bridges:
             filter: { brunnel: bridge }
@@ -64,7 +70,7 @@ layers:
 
     roads:
         data: { source: openmaptiles, layer: transportation }
-        filter: { [ class: [primary, secondary, tertiary, minor, service, track, path], { class: [motorway, trunk], ramp: 1 } ], not: { indoor: 1 } }
+        filter: { class: [primary, secondary, tertiary, minor, service, track, path], not: { indoor: 1 } }
         draw:
             lines-road-style:
                 order: 30
