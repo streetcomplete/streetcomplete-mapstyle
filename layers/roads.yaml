@@ -21,7 +21,7 @@ layers:
 
     highway:
         data: { source: thunderforest, layer: road }
-        filter: { highway: [motorway, trunk] }
+        filter: { highway: [motorway, motorway_link, trunk, trunk_link] }
         draw:
             lines-highway-style:
                 order: 34
@@ -33,6 +33,12 @@ layers:
                     color: global.highway_outline_color
                     width: function () { return 1/4 * Math.log($zoom); }
                     order: 35
+
+        link:
+            filter: { highway: [motorway_link, trunk_link] }
+            draw:
+                lines-highway-style:
+                    width: [[9, 1px], [14, 2px], [16, 6px], [19, 12m]]
 
         bridges:
             filter: { bridge: yes }
@@ -66,7 +72,7 @@ layers:
     roads:
         # thunderforest: not possible to filter out indoor paths
         data: { source: thunderforest, layer: road }
-        filter: { not: { highway: [motorway, trunk] } }
+        filter: { not: { highway: [motorway, motorway_link, trunk, trunk_link] } }
         draw:
             lines-road-style:
                 order: 30
