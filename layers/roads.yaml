@@ -131,7 +131,12 @@ layers:
                         width: function () { return 1/4 * Math.log($zoom); }
                         order: 31
 
-        # openmaptiles: there is no property for private roads
+        private:
+            filter: { access: no }
+            draw:
+                lines-road-style:
+                    outline:
+                        style: private-way
 
         oneway:
             filter: { not: { oneway: 0 }, $zoom: { min: 17 } }
