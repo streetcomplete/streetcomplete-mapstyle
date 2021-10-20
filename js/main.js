@@ -71,7 +71,7 @@ async function styles() {
       continue;
     }
 
-    const url = `https://cdn.jsdelivr.net/gh/ENT8R/streetcomplete-mapstyle@${provider}/streetcomplete-${style}-style.yaml`;
+    const url = `https://cdn.jsdelivr.net/gh/streetcomplete/streetcomplete-mapstyle@${provider}/streetcomplete-${style}-style.yaml`;
     const content = await fetch(url).then(response => response.text());
     editor.getDoc().setValue(content);
     editor.getDoc().clearHistory();
