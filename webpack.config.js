@@ -6,12 +6,12 @@ export default {
     publicPath: 'dist/'
   },
   devServer: {
-    watchContentBase: true,
-    publicPath: '/dist/',
-    compress: true,
-    port: 8000,
-    watchOptions: {
-      ignored: ['.git', 'node_modules']
-    }
+    static: {
+      directory: './',
+      watch: {
+        ignored: ['.git', 'node_modules']
+      }
+    },
+    port: 8000
   }
 };
