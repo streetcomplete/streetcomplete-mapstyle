@@ -118,7 +118,7 @@ layers:
     pedestrian-areas:
         data: { source: jawg , layer: road }
         squares:
-            filter: { class: street_limited, type: pedestrian , $zoom: { min: 17 } }
+            filter: { class: street_limited, type: pedestrian , $zoom: { min: 14 } }
             draw:
                 lines:
                     color: global.square_outline_color
