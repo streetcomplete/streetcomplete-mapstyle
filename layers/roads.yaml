@@ -100,6 +100,15 @@ layers:
                 lines-road-style:
                     color: global.path_color
                     width: [[14, 0.5px], [15, 1px], [19, 2m]]
+            path-tunnel:
+                filter: { structure: tunnel }
+                draw:
+                    lines-road-style:
+                        order: 20
+                        style: tunnel-way
+                        color: global.tunnel_color
+                        outline:
+                            order: 21
             steps:
                 filter: { type: steps }
                 draw:
