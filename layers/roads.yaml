@@ -104,11 +104,8 @@ layers:
                 filter: { structure: tunnel }
                 draw:
                     lines-road-style:
-                        order: 20
                         style: tunnel-way
                         color: global.tunnel_color
-                        outline:
-                            order: 21
             steps:
                 filter: { type: steps }
                 draw:
