@@ -149,7 +149,7 @@ layers:
         draw:
             polygons:
                 order: 10
-                color: global.building_color
+                color: global.building_outline_color
 
 styles:
     hillshade-light-style:
