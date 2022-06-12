@@ -1,6 +1,9 @@
 global:
     api_key: false # intended to be overwritten by StreetComplete
     language: false # intended to be overwritten by StreetComplete
+    # for online testing (e.g. Tangram Play), language_script is not needed
+    # for local testing and the final release (e.g. using an emulator):
+    #language_script: Latn # intended to be overwritten by StreetComplete
     text_font_family: 'Roboto'
     text_stroke_color: 'white'
     text_water_color: '#fff'
