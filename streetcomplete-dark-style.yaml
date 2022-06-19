@@ -43,12 +43,6 @@ global:
     tunnel_color: [0.3, 0.2, 1.0, 0.2]
 
 styles:
-    lines-highway-style:
-        base: lines
-        blend: add
-    lines-railway-style:
-        base: lines
-        blend: add
     buildings-style:
         base: polygons
         blend: translucent
