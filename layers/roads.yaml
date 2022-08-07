@@ -107,7 +107,7 @@ layers:
                         style: tunnel-way
                         color: global.tunnel_color
             steps:
-                filter: { type: steps }
+                filter: { type: steps, not: { structure: tunnel } }
                 draw:
                     step_dashes:
                         order: 31
@@ -119,6 +119,14 @@ layers:
                     draw:
                         step_dashes:
                             order: 41
+            steps-tunnel:
+                filter: { type: steps, structure: tunnel }
+                draw:
+                    step_dashes:
+                        order: 21
+                        cap: butt
+                        color: global.tunnel_color
+                        width: [[14, 0.5px], [15, 1px], [19, 2m]]
 
         road-outline:
             filter: { $zoom: { min: 15 } }
