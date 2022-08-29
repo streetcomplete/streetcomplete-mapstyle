@@ -34,7 +34,7 @@ layers:
             filter: [ class: motorway_link, { class: street, type: trunk_link } ]
             draw:
                 lines-highway-style:
-                  width: [[10, 1px], [14, 3px], [18, 6m]]
+                    width: [[10, 1px], [14, 3px], [18, 6m]]
 
         oneway:
             filter: function () { return feature.oneway == true; }
