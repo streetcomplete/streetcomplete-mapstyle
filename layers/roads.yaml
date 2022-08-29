@@ -146,7 +146,7 @@ layers:
                         style: private-way
 
         oneway:
-            filter: { oneway: [true] , $zoom: { min: 17 } }
+            filter: function () { return $zoom >= 17 && feature.oneway == true; }
             draw:
                 oneway-arrow:
                     flat: true
@@ -154,7 +154,7 @@ layers:
                     color: global.oneway_arrow_color
                     size: [[17, [6px, auto]], [20, [18px, auto]]]
                     placement: spaced
-                    placement_spacing: [[17, 64px], [20, 256px]]
+                    placement_spacing: [[17, 64px], [20, 128px]]
                     angle: auto
                     text:
                         visible: false
