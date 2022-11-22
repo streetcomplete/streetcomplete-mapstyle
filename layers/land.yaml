@@ -143,10 +143,10 @@ styles:
         blend: translucent
     buildings-style:
         base: polygons
-        blend: opaque
+        blend: translucent
     buildings-outline-style:
         base: lines
-        blend: inlay
+        blend: translucent
     lines-coast:
         base: lines
         texcoords: true
