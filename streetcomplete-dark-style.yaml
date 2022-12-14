@@ -30,8 +30,8 @@ global:
     town_color: [0.149, 0.149, 0.180, 1.00]
 
     # alpha is shown as double of what is specified https://github.com/tangrams/tangram-es/issues/2333
-    building_color: [0.247, 0.184, 0.184, 0.80]
-    building_outline_color: [0.286, 0.247, 0.247, 0.80]
+    building_color: [0.247, 0.184, 0.184, 0.4]
+    building_outline_color: [0.286, 0.247, 0.247, 0.40]
 
     boundary_color: '#e72'
 
