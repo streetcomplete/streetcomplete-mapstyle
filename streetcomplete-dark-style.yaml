@@ -13,25 +13,25 @@ import:
 #    - layers/roads.yaml
 
 global:
-    text_stroke_color: '#000'
-    text_fill_color: '#ddd'
-    text_water_color: '#ddd'
+    text_stroke_color: '#999'
+    text_fill_color: '#000'
+    text_water_color: '#aaa'
 
     railway_color: [0.435, 0.502, 0.737, 1.00]
-    road_color: '#888'
+    road_color: '#999'
     road_outline_color: [0.322, 0.298, 0.298, 1.00]
     highway_color: [0.686, 0.376, 0.376, 1.00]
     path_outline_color: [0.290, 0.302, 0.380, 1.00]
 
     earth_color: [0.110, 0.110, 0.110, 1.00]
-    water_color: [0.180, 0.204, 0.392, 1.00]
-    green_color: [0.216, 0.243, 0.192, 1.00]
-    forest_color: [0.137, 0.200, 0.157, 1.00]
-    town_color: [0.145, 0.145, 0.176, 1.00]
+    water_color: [0.173, 0.184, 0.365, 1.00]
+    green_color: [0.216, 0.247, 0.188, 1.00]
+    forest_color: [0.137, 0.192, 0.149, 1.00]
+    town_color: [0.149, 0.149, 0.180, 1.00]
 
     # alpha is shown as double of what is specified https://github.com/tangrams/tangram-es/issues/2333
-    building_color: [0.188, 0.161, 0.161, 0.40]
-    building_outline_color: [0.286, 0.247, 0.247, 0.40]
+    building_color: [0.247, 0.184, 0.184, 0.80]
+    building_outline_color: [0.286, 0.247, 0.247, 0.80]
 
     boundary_color: '#e72'
 
